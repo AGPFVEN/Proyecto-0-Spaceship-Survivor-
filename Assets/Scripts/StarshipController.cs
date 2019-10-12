@@ -17,7 +17,6 @@ public class StarshipController : MonoBehaviour
     void Start()
     {
         
-        
     }
 
     // Update is called once per frame
@@ -55,16 +54,14 @@ public class StarshipController : MonoBehaviour
         }
     }
 
+    //Disparo(función)
     private void FireBullet()
     {
         GameObject firedBullet = Instantiate(Bullet, SpaceShip.position, SpaceShip.rotation);
         firedBullet.GetComponent<Rigidbody2D>().velocity = SpaceShip.up * 20f;
     }
 
-    /// <summary>
-    /// Healthbar
-    /// </summary>
-    /// La puta barra de vida
+    //Barra de Vida
     private void OnTriggerEnter2D(Collider2D collision)
     {
         healthBar.GetComponent<HealthBar>().Damage(20f);

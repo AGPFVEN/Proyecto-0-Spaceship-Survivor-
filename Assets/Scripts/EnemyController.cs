@@ -7,30 +7,26 @@ public class EnemyController : MonoBehaviour
     Transform Target;
     public GameObject Player;
     public float movementSpeed;
-
+    Rigidbody2D rb;
+    public Vector2 lookDirection;
+    public float lookAngle;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Rotation to look Player
         Target = GameObject.FindGameObjectWithTag("Player").transform;
-        Vector3 forwardAxis = new Vector3(0, 0, -1);
-
-        transform.LookAt(Target.position, forwardAxis);
         Debug.DrawLine(transform.position, Target.position);
-        transform.eulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
-        transform.position -= transform.TransformDirection(Vector2.up) * movementSpeed;
+        lookDirection = Target.position - transform.position;
+        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
-        //Target = Player.transform;
-        //Vector3 forwardAxis = new Vector3(0, 0, -1);
-
-        //transform.LookAt(Target.position, Target.position);
-        //Debug.DrawLine(transform.position, Target.position);
-        //transform.eulerAngles = new Vector3(0, 0, Target.position.z);
-        //transform.position -= transform.TransformDirection(Vector2.up) * movementSpeed;
+        //Movimiento
+        transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
     }
 }
