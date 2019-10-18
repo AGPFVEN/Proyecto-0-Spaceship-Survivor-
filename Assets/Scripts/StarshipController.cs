@@ -9,7 +9,6 @@ public class StarshipController : MonoBehaviour
     public GameObject Bullet;
     public Transform SpaceShip;
     public Transform healthBar;
-    public Rigidbody2D rb;
 
     private Vector2 lookDirection;
     private float lookAngle;
@@ -17,7 +16,7 @@ public class StarshipController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+           
     }
 
     // Update is called once per frame
@@ -63,11 +62,8 @@ public class StarshipController : MonoBehaviour
     }
 
     //Barra de Vida
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if(collision.gameObject.tag == "Enemy")
-        {
-            healthBar.GetComponent<HealthBar>().Damage(20f);
-        }
+        healthBar.GetComponent<HealthBar>().Damage(20f);
     }
 }

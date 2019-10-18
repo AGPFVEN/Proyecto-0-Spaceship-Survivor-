@@ -7,13 +7,13 @@ public class EnemyController : MonoBehaviour
     Transform Target;
     public GameObject Player;
     public float movementSpeed;
-    Rigidbody2D rb;
+    //Rigidbody2D rb;
     public Vector2 lookDirection;
     public float lookAngle;
     // Start is called before the first frame update
     void Start()
     {
-        rb.GetComponent<Rigidbody2D>();
+        //this.rb.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
