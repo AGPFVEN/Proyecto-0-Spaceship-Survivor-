@@ -9,6 +9,7 @@ public class StarshipController : MonoBehaviour
     public GameObject Bullet;
     public Transform SpaceShip;
     public Transform healthBar;
+    public Rigidbody2D rb;
 
     private Vector2 lookDirection;
     private float lookAngle;
@@ -64,6 +65,9 @@ public class StarshipController : MonoBehaviour
     //Barra de Vida
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        healthBar.GetComponent<HealthBar>().Damage(20f);
+        if(collision.gameObject.tag == "Enemy")
+        {
+            healthBar.GetComponent<HealthBar>().Damage(20f);
+        }
     }
 }
