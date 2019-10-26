@@ -16,8 +16,8 @@ public class CameraCollider : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collision2D col)
     {
-        //MCamera.GetComponent<CameraMovement>().limite(true);
+        MCamera.GetComponent<CameraMovement>().Movement(true);
     }
 }

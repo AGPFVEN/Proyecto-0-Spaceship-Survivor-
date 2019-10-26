@@ -15,11 +15,15 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         //this.rb.GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
-    public void Movement (bool limite)
+    public void Movement (bool chocando)
     {
-
+        if (chocando == true)
+        {
+            Debug.Log("LOL");
+        } 
     }
 }
