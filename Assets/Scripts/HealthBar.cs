@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    private float lol;
+    //private float lol;
     public float maxHealth;
     public float currentHealth;
     public float health;
-    private float healing;
-    private float cronometro;
+    //private float healing;
+    //private float cronometro;
     public Image hpImage;
     public Text hpText;
     public GameObject player;
@@ -20,9 +20,9 @@ public class HealthBar : MonoBehaviour
     {
         hpImage.GetComponent<Image>().fillAmount = 1;
         currentHealth = maxHealth;
-        healing = maxHealth;
-        cronometro = 0;
-        lol = 1;
+        //healing = maxHealth;
+        //cronometro = 0;
+        //lol = 1;
     }
 
     public void Damage(float damageAmount)
@@ -44,10 +44,11 @@ public class HealthBar : MonoBehaviour
         //    }
         //}
 
+        
+        //Este es el que funciona
         health = (currentHealth - damageAmount) / maxHealth;
-        health = lol;
         currentHealth = currentHealth - damageAmount;
-        hpImage.GetComponent<Image>().fillAmount = lol;
+        hpImage.GetComponent<Image>().fillAmount = currentHealth/maxHealth;
         hpText.GetComponent<Text>().text = currentHealth.ToString() + "%";
         if (health <= 0)
         {
