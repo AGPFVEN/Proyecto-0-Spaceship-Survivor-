@@ -19,5 +19,7 @@ public class CameraCollider : MonoBehaviour
     void OnTriggerEnter2D(Collision2D col)
     {
         MCamera.GetComponent<CameraMovement>().Movement(true);
+        ///noo se que carajo hacer 
+        ///
     }
 }
