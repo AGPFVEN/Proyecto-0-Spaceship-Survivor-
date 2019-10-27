@@ -14,8 +14,8 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this.rb.GetComponent<Rigidbody2D>();
-        
+        this.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
