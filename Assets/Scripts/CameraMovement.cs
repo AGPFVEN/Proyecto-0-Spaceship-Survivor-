@@ -5,25 +5,23 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     Transform Target;
-    public GameObject Player;
-    public GameObject CameraCuadrado;
+    public Transform Player;
+    public Transform CameraCuadrado;
     public float movementSpeed;
     //Rigidbody2D rb;
     public Vector2 lookDirection;
     public float lookAngle;
     // Start is called before the first frame update
-    void Start()
+
+    void Update()
     {
-        this.GetComponent<Rigidbody2D>();
+        //Movimiento
+        Raycasting();
+        transform.position = Vector2.MoveTowards(transform.position, Target.position, 0);
 
     }
-
-    // Update is called once per frame
-    public void Movement (bool chocando)
+    void Raycasting()
     {
-        if (chocando == true)
-        {
-            Debug.Log("LOL");
-        } 
+        Debug.DrawLine(CameraCuadrado.position, Player.position);
     }
 }
