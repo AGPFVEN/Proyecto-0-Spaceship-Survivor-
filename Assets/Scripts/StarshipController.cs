@@ -9,6 +9,7 @@ public class StarshipController : MonoBehaviour
     public GameObject Bullet;
     public Transform SpaceShip;
     public Transform healthBar;
+    public Renderer Starship;
 
     private Vector2 lookDirection;
     private float lookAngle;
@@ -16,7 +17,7 @@ public class StarshipController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-           
+        Starship.enabled = true;
     }
 
     // Update is called once per frame
@@ -64,6 +65,9 @@ public class StarshipController : MonoBehaviour
     //Barra de Vida
     void OnCollisionEnter2D(Collision2D col)
     {
-        healthBar.GetComponent<HealthBar>().Damage(20f);
+        Starship.enabled = false;
+        Debug.Log("LOL");
+        healthBar.GetComponent<HealthBar>().Damage(5f);
+        Starship.enabled = true;
     }
 }
