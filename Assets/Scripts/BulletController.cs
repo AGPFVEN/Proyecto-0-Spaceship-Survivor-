@@ -7,13 +7,6 @@ public class BulletController : MonoBehaviour
     public float bTLimit = 10f;
     public float bulletSpeed = 20f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         //Que pasen 40s
