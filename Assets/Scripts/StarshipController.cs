@@ -82,14 +82,14 @@ public class StarshipController : MonoBehaviour
         Starship.enabled = false;
         healthBar.GetComponent<HealthBar>().Damage(5f);
         Starship.enabled = true;
-        //Blinking
-        if (crono < 10f && crono > 0f)
+    }
+    
+    private void Blink(float waitTime)
+    {
+        var endTime = Time.time + waitTime;
+        while (Time.time < waitTime)
         {
             ToDisable.SetActive(false);
-            crono += 1f * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime;
-            ToDisable.SetActive(true);
-            crono += 1f * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime;
-
         }
     }
 }
