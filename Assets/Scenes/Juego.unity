@@ -225,12 +225,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3022220936088989604}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &109861233 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3022220936198321877, guid: cf96297aed8a0f74cbd4bab55debd0c1,
-    type: 3}
-  m_PrefabInstance: {fileID: 3022220936088989604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &422171373
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,16 +368,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f923c94289e3a489849ce10793896e, type: 3}
+  m_Script: {fileID: 11500000, guid: b0fb245740c3bdf4fb66268b66491070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 109861233}
-  CameraCuadrado: {fileID: 519420032}
-  movementSpeed: 0
-  lookDirection: {x: 0, y: 0}
-  lookAngle: 0
+  maxHealth: 0
+  currentHealth: 0
+  health: 0
+  hpImage: {fileID: 0}
+  hpText: {fileID: 0}
+  player: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -707,7 +702,7 @@ GameObject:
   - component: {fileID: 894330095}
   - component: {fileID: 894330096}
   m_Layer: 0
-  m_Name: Lolazo
+  m_Name: PlayerFollower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,14 +753,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 894330093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8703b31a0e635084a8b1369719211a38, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d29bb1e6b8d14c43ad9725fe174de92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   tLimit: 60
-  Bullet: {fileID: 0}
-  SpaceShip: {fileID: 0}
-  healthBar: {fileID: 0}
 --- !u!1 &1009295930
 GameObject:
   m_ObjectHideFlags: 0
@@ -5945,6 +5937,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3022220936483639984, guid: cf96297aed8a0f74cbd4bab55debd0c1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3022220936198321876, guid: cf96297aed8a0f74cbd4bab55debd0c1,
         type: 3}
       propertyPath: m_Enabled
@@ -5986,11 +5983,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3022220936198321872, guid: cf96297aed8a0f74cbd4bab55debd0c1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3022220936483639984, guid: cf96297aed8a0f74cbd4bab55debd0c1,
         type: 3}
       propertyPath: m_Enabled
       value: 1

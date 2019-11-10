@@ -15,7 +15,6 @@ public class HealthBar : MonoBehaviour
     public Text hpText;
     public GameObject player;
 
-
     private void Start()
     {
         hpImage.GetComponent<Image>().fillAmount = 1;
@@ -44,7 +43,6 @@ public class HealthBar : MonoBehaviour
         //    }
         //}
 
-        
         //Este es el que funciona
         health = (currentHealth - damageAmount) / maxHealth;
         currentHealth = currentHealth - damageAmount;

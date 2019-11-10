@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class StarshipController : MonoBehaviour
 {
+    //This
+    public GameObject ToDisable;
+    //Movement
     public float speed = 5f;
     public float tLimit = 60;
+
+    //Fire
     public GameObject Bullet;
+
+    //HealthBar
     public Transform SpaceShip;
     public Transform healthBar;
     public Renderer Starship;
 
+    //Blinking
+    private static bool disabled = false;
+
+    //Rotation
     private Vector2 lookDirection;
     private float lookAngle;
+    private float crono;
 
     // Start is called before the first frame update
     void Start()
     {
         Starship.enabled = true;
+        crono = 0;
     }
 
     // Update is called once per frame
@@ -65,9 +78,16 @@ public class StarshipController : MonoBehaviour
     //Barra de Vida
     void OnCollisionEnter2D(Collision2D col)
     {
+        crono = 1f;
         Starship.enabled = false;
-        Debug.Log("LOL");
         healthBar.GetComponent<HealthBar>().Damage(5f);
         Starship.enabled = true;
+        //Blinking
+        if (crono < 10f && crono > 0f)
+        {
+            ToDisable.SetActive(false);
+            crono += 1f * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime;
+            ToDisable.SetActive(true);
+        }
     }
 }
