@@ -88,6 +88,8 @@ public class StarshipController : MonoBehaviour
             ToDisable.SetActive(false);
             crono += 1f * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime;
             ToDisable.SetActive(true);
+            crono += 1f * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime * Time.deltaTime;
+
         }
     }
 }
