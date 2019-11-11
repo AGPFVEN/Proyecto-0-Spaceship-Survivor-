@@ -219,6 +219,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &61114666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3022220936483639991, guid: cf96297aed8a0f74cbd4bab55debd0c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3022220936088989604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &109861231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3022220936198321867, guid: cf96297aed8a0f74cbd4bab55debd0c1,
@@ -389,7 +395,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.9716981, g: 0.6554379, b: 0.6554379, a: 0}
+  m_BackGroundColor: {r: 0.20714667, g: 0.22831142, b: 0.3301887, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5882,6 +5888,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Starship (BorderLine)
       objectReference: {fileID: 0}
+    - target: {fileID: 3022220936198321867, guid: cf96297aed8a0f74cbd4bab55debd0c1,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022220936198321867, guid: cf96297aed8a0f74cbd4bab55debd0c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3022220936198321877, guid: cf96297aed8a0f74cbd4bab55debd0c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5947,6 +5963,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3022220936198321876, guid: cf96297aed8a0f74cbd4bab55debd0c1,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3022220936198321878, guid: cf96297aed8a0f74cbd4bab55debd0c1,
         type: 3}
       propertyPath: healthBar
@@ -5957,6 +5978,11 @@ PrefabInstance:
       propertyPath: Starship
       value: 
       objectReference: {fileID: 2051013359}
+    - target: {fileID: 3022220936198321878, guid: cf96297aed8a0f74cbd4bab55debd0c1,
+        type: 3}
+      propertyPath: ToDisable
+      value: 
+      objectReference: {fileID: 61114666}
     - target: {fileID: 3022220936198321886, guid: cf96297aed8a0f74cbd4bab55debd0c1,
         type: 3}
       propertyPath: m_Enabled
