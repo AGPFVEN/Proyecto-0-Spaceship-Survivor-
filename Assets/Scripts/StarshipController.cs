@@ -82,12 +82,13 @@ public class StarshipController : MonoBehaviour
         Starship.enabled = false;
         healthBar.GetComponent<HealthBar>().Damage(1f);
         Starship.enabled = true;
+        //this.Blink(3f);
     }
     
     private void Blink(float waitTime)
     {
         var endTime = Time.time + waitTime;
-        while (Time.time < waitTime)
+        if (Time.time < waitTime)
         {
             ToDisable.SetActive(false);
         }
