@@ -7,17 +7,17 @@ public class HealthBar : MonoBehaviour
 {
     //private float lol;
     public float maxHealth;
-    public float currentHealth;
-    public float health;
+    private float currentHealth;
+    private float health;
     //private float healing;
     //private float cronometro;
     public Image hpImage;
     public Text hpText;
     public GameObject player;
 
-    private void Start()
+    private void Awake ()
     {
-        hpImage.GetComponent<Image>().fillAmount = 1;
+        hpImage.fillAmount = 1;
         currentHealth = maxHealth;
         //healing = maxHealth;
         //cronometro = 0;

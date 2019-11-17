@@ -80,7 +80,7 @@ public class StarshipController : MonoBehaviour
     {
         crono = 1f;
         Starship.enabled = false;
-        healthBar.GetComponent<HealthBar>().Damage(5f);
+        healthBar.GetComponent<HealthBar>().Damage(1f);
         Starship.enabled = true;
     }
     
