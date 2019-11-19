@@ -17,7 +17,6 @@ public class HealthBar : MonoBehaviour
 
     private void Awake ()
     {
-
         hpImage.fillAmount = 1;
         currentHealth = maxHealth;
         //healing = maxHealth;
