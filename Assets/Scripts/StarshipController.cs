@@ -89,7 +89,7 @@ public class StarshipController : MonoBehaviour
     {
         var endTime = 0 + waitTime;
         if (endTime > waitTime)
-        {
+        {//está muy jodido coño 
             ToDisable.SetActive(false);
             ToDisable.SetActive(true);
         }
