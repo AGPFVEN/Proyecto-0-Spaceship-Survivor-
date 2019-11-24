@@ -88,10 +88,20 @@ public class StarshipController : MonoBehaviour
     private void Blink(float waitTime)
     {
         var endTime = 0 + waitTime;
+       
         if (endTime > waitTime)
-        {//está muy jodido coño 
+        {
             ToDisable.SetActive(false);
+            StartCoroutine(Crono());
             ToDisable.SetActive(true);
+            StartCoroutine(Crono());
+            ToDisable.SetActive(false);
         }
+    }
+    IEnumerator Crono()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(2);
+        print(Time.time);
     }
 }
