@@ -19,7 +19,7 @@ public class StarshipController : MonoBehaviour
     public Renderer Starship;
 
     //Blinking
-    private static bool disabled = false;
+    //private static bool disabled = false;
 
     //Rotation
     private Vector2 lookDirection;
@@ -82,26 +82,26 @@ public class StarshipController : MonoBehaviour
         Starship.enabled = false;
         healthBar.GetComponent<HealthBar>().Damage(1f);
         Starship.enabled = true;
-        this.Blink(3f);
+        //this.Blink(3f);
     }
     
-    private void Blink(float waitTime)
-    {
-        var endTime = 0 + waitTime;
+    //private void Blink(float waitTime)
+    //{
+    //    var endTime = 0 + waitTime;
        
-        if (endTime > waitTime)
-        {
-            ToDisable.SetActive(false);
-            StartCoroutine(Crono());
-            ToDisable.SetActive(true);
-            StartCoroutine(Crono());
-            ToDisable.SetActive(false);
-        }
-    }
-    IEnumerator Crono()
-    {
-        print(Time.time);
-        yield return new WaitForSeconds(2);
-        print(Time.time);
-    }
+    //    if (endTime > waitTime)
+    //    {
+    //        ToDisable.SetActive(false);
+    //        StartCoroutine(Crono());
+    //        ToDisable.SetActive(true);
+    //        StartCoroutine(Crono());
+    //        ToDisable.SetActive(false);
+    //    }
+    //}
+    //IEnumerator Crono()
+    //{
+    //    print(Time.time);
+    //    yield return new WaitForSeconds(2);
+    //    print(Time.time);
+    //}
 }
