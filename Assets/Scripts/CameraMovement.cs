@@ -16,6 +16,7 @@ public class CameraMovement : MonoBehaviour
         float hInput = Input.GetAxis("Horizontal");
         transform.position += new Vector3(hInput * speed * Time.deltaTime, 0, 0);
 
+
         //Aceleración
         if (tLimit > 0)
         {
@@ -26,4 +27,3 @@ public class CameraMovement : MonoBehaviour
         }
     }
 }
-//He vuelto 

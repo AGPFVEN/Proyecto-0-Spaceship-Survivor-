@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class StarshipController : MonoBehaviour
 {
-    //This
-    public GameObject ToDisable;
     //Movement
-    public float speed = 5f;
-    public float tLimit = 60;
+    public float speed;
+    public float tLimit;
 
     //Fire
     public GameObject Bullet;
@@ -24,23 +23,23 @@ public class StarshipController : MonoBehaviour
     //Rotation
     private Vector2 lookDirection;
     private float lookAngle;
-    private float crono;
+    //private float crono;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        Starship.enabled = true;
-        crono = 0;
-    }
+    //void Start()
+    //{
+    //    Starship.enabled = true;
+    //    crono = 0;
+    //}
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         ////Movimiento 
         float vInput = Input.GetAxis("Vertical");
-        transform.position += new Vector3(0, vInput * speed * Time.deltaTime, 0);
+        transform.position += new Vector3(0, vInput * speed * Time.deltaTime * Time.deltaTime, 0);
         float hInput = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(hInput * speed * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(hInput * speed * Time.deltaTime * Time.deltaTime, 0, 0);
 
 
         //Aceleración
@@ -53,10 +52,9 @@ public class StarshipController : MonoBehaviour
         }
 
         //Disparo
-
-        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
+        //lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        //lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
         if (Input.GetMouseButton(0))
         {
@@ -78,10 +76,10 @@ public class StarshipController : MonoBehaviour
     //Barra de Vida
     void OnCollisionEnter2D(Collision2D col)
     {
-        crono = 1f;
-        Starship.enabled = false;
+        //crono = 1f;
+        //Starship.enabled = false;
         healthBar.GetComponent<HealthBar>().Damage(1f);
-        Starship.enabled = true;
+        //Starship.enabled = true;
         //this.Blink(3f);
     }
     
