@@ -52,9 +52,9 @@ public class StarshipController : MonoBehaviour
         }
 
         //Disparo
-        //lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        //lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
+        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
         if (Input.GetMouseButton(0))
         {
