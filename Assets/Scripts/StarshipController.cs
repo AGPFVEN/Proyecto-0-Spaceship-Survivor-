@@ -33,7 +33,7 @@ public class StarshipController : MonoBehaviour
     //}
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         ////Movimiento 
         float vInput = Input.GetAxis("Vertical");
