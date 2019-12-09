@@ -1,14 +1,16 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 using UnityEditor;
 
-[CustomEditor(typeof(StarshipController))]
+[CustomEditor(typeof(EnemyController))]
 public class FieldOfViewEditor : Editor
 {
+
     void OnSceneGUI()
     {
-        StarshipController fow = (StarshipController)target;
+        EnemyController fow = (EnemyController)target;
         Handles.color = Color.white;
-        Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360,  3);
+        Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360, fow.viewRadius);
+
     }
 }

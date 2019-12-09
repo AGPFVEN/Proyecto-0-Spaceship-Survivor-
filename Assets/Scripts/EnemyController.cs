@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     Transform Target;
-    Rigidbody2D rigidbody;
+    //Rigidbody2D rigidbody;
     Camera viewcamera;
     public GameObject Player;
     
@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
 
     void start()
     {
-        rigidbody = GetComponent<Rigidbody2D> ();
+        //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
     }
 
