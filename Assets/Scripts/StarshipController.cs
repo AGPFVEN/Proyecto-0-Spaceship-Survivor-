@@ -17,22 +17,16 @@ public class StarshipController : MonoBehaviour
     public Transform healthBar;
     public Renderer Starship;
 
-    //Blinking
-    //private static bool disabled = false;
-
     //Rotation
+    Camera viewCamera;
     private Vector2 lookDirection;
     private float lookAngle;
-    //private float crono;
 
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    Starship.enabled = true;
-    //    crono = 0;
-    //}
+    void start()
+    {
+        viewCamera = Camera.main;
+    }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         ////Movimiento 
@@ -52,7 +46,7 @@ public class StarshipController : MonoBehaviour
         }
 
         //Disparo
-        lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        lookDirection = viewCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
@@ -76,30 +70,6 @@ public class StarshipController : MonoBehaviour
     //Barra de Vida
     void OnCollisionEnter2D(Collision2D col)
     {
-        //crono = 1f;
-        //Starship.enabled = false;
         healthBar.GetComponent<HealthBar>().Damage(1f);
-        //Starship.enabled = true;
-        //this.Blink(3f);
     }
-    
-    //private void Blink(float waitTime)
-    //{
-    //    var endTime = 0 + waitTime;
-       
-    //    if (endTime > waitTime)
-    //    {
-    //        ToDisable.SetActive(false);
-    //        StartCoroutine(Crono());
-    //        ToDisable.SetActive(true);
-    //        StartCoroutine(Crono());
-    //        ToDisable.SetActive(false);
-    //    }
-    //}
-    //IEnumerator Crono()
-    //{
-    //    print(Time.time);
-    //    yield return new WaitForSeconds(2);
-    //    print(Time.time);
-    //}
 }

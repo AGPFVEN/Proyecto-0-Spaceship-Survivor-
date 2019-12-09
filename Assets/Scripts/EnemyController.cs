@@ -5,10 +5,30 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     Transform Target;
+    Rigidbody2D rigidbody;
+    Camera viewcamera;
     public GameObject Player;
+    
+    //Shift
     public float movementSpeed;
+
+    //Turn
     public float lookAngle;
     public Vector2 lookDirection;
+
+    //Player detection
+    public float viewRadius;
+    public float viewAngle;
+    public Vector3 DirFromAngle(float  angleInDegrees)
+    {
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    }
+
+    void start()
+    {
+        rigidbody = GetComponent<Rigidbody2D> ();
+        viewcamera = Camera.main;
+    }
 
     void FixedUpdate()
     {
@@ -19,7 +39,10 @@ public class EnemyController : MonoBehaviour
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
+        //Player detection
+        
+
         //Movimiento
-        transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
     }
 }
