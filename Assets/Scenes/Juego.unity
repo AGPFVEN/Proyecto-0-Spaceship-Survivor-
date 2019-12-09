@@ -406,10 +406,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 503859800}
-  - component: {fileID: 503859799}
-  - component: {fileID: 503859798}
   - component: {fileID: 503859801}
+  - component: {fileID: 503859799}
   - component: {fileID: 503859802}
+  - component: {fileID: 503859798}
   m_Layer: 0
   m_Name: 'Spaceship (Border) '
   m_TagString: Player
@@ -724,6 +724,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1379547068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4847643537598916034, guid: 97ca9d1a82e6c154081ec8b8841f121c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1546809448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1379547074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379547068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2ea1d0f07c0bf4c92822c2107fbdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1493765282
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,17 +876,17 @@ PrefabInstance:
     - target: {fileID: 4847643537598916047, guid: 97ca9d1a82e6c154081ec8b8841f121c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.856821
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 4847643537598916047, guid: 97ca9d1a82e6c154081ec8b8841f121c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.6430097
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4847643537598916047, guid: 97ca9d1a82e6c154081ec8b8841f121c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.3063064
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4847643537598916047, guid: 97ca9d1a82e6c154081ec8b8841f121c,
         type: 3}
@@ -909,6 +927,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847643537598916045, guid: 97ca9d1a82e6c154081ec8b8841f121c,
+        type: 3}
+      propertyPath: viewRadius
+      value: 75.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847643537598916045, guid: 97ca9d1a82e6c154081ec8b8841f121c,
+        type: 3}
+      propertyPath: viewAngle
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97ca9d1a82e6c154081ec8b8841f121c, type: 3}
