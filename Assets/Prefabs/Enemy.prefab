@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  movementSpeed: 10
+  movementSpeed: 3
   lookAngle: 0
   lookDirection: {x: 0, y: 0}
-  viewRadius: 0
-  viewAngle: 0
+  viewRadius: 2
+  viewAngle: 128
