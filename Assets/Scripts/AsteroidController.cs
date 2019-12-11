@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class AsteroidController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float health;
+
     void Start()
     {
-        Physics2D.gravity = new Vector2(0, 0);
+      
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        print(health);
+        if(health < 0 || health == 0)
+        {
+            Destroy(this);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        health -= 5;
     }
 }

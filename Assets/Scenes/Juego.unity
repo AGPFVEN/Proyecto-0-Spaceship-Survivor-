@@ -1079,4 +1079,4 @@ MonoBehaviour:
   maxHealth: 100
   hpImage: {fileID: 1294382693}
   hpText: {fileID: 481741351}
-  player: {fileID: 0}
+  player: {fileID: 503859797}
