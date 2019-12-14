@@ -28,6 +28,8 @@ public class EnemyController : MonoBehaviour
         }
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
+    public LayerMask targetMask;
+    public LayerMask obstacleMask;
 
     void start()
     {
@@ -49,5 +51,9 @@ public class EnemyController : MonoBehaviour
 
         //Movimiento
         //transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
+    }
+    void FindVisibleTargets()
+    {
+
     }
 }
