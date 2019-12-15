@@ -54,6 +54,10 @@ public class EnemyController : MonoBehaviour
     }
     void FindVisibleTargets()
     {
-
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+        for (int i = 0; i < targetsInViewRadius.Length; i++)
+        {
+            Transform target = targetsInViewRadius [i].transform;
+        }
     }
 }
