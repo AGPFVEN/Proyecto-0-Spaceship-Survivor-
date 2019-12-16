@@ -35,7 +35,6 @@ public class StarshipController : MonoBehaviour
         float hInput = Input.GetAxis("Horizontal");
         transform.position += new Vector3(hInput * speed * Time.deltaTime * Time.deltaTime, 0, 0);
 
-
         //Aceleración
         if (tLimit > 0)
         {
@@ -52,7 +51,7 @@ public class StarshipController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            InvokeRepeating("FireBullet", 0.05f, 1f);
+            InvokeRepeating("FireBullet", 0.05f, 10f);
         }
         else if (Input.GetMouseButtonUp(0))
         {

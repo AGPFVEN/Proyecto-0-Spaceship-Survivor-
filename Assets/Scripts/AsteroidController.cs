@@ -21,6 +21,6 @@ public class AsteroidController : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        health -= 5;
+        health--;
     }
 }
