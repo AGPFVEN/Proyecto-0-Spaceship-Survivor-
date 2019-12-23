@@ -14,7 +14,6 @@ public class AsteroidController : MonoBehaviour
     void FixedUpdate()
     {
         //Destruction of the asteroid in case of hit
-        print(healthA);
         if (healthA <= 0)
         {
             Destruction();

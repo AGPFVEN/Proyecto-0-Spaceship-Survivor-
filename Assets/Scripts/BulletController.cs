@@ -5,15 +5,14 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public float bTLimit = 10f;
-    public float bTCollider = 3;
+    public float bTCollider = 100000000000;
     public float bulletSpeed = 20f;
-    public float countDown;
     Collider2D aCollider;
 
     void Start()
     {
         aCollider = GetComponent<Collider2D>();
-        aCollider.isTrigger = true;
+        aCollider.isTrigger = false;
     }
 
     void Update()
@@ -24,7 +23,7 @@ public class BulletController : MonoBehaviour
             bTCollider--;
             if (bTCollider <= 0)
             {
-                aCollider.isTrigger = false;
+                aCollider.isTrigger = true;
             }
         }
 
@@ -41,7 +40,6 @@ public class BulletController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        print("Collision");
         Destroy(gameObject);
     }
 }

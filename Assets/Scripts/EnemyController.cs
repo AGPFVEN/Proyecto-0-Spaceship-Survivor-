@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    //Destroyable
+    public float healthE;
+
     Transform Target;
     //Rigidbody2D rigidbody;
     Camera viewcamera;
@@ -39,6 +42,12 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Destruction of the asteroid in case of hit
+        if (healthE <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         //Rotation to look Player
         Target = GameObject.FindGameObjectWithTag("Player").transform;
         Debug.DrawLine(transform.position, Target.position);
@@ -50,7 +59,7 @@ public class EnemyController : MonoBehaviour
 
 
         //Movimiento
-        //transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime );
+        transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
     }
     void FindVisibleTargets()
     {

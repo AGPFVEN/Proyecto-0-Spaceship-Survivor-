@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class StarshipController : MonoBehaviour
 {
+    //Variables para disparar
+    public float countDown;
+    public float tocero;
+
     //Movement
     public float speed;
     public float tLimit;
@@ -25,6 +29,7 @@ public class StarshipController : MonoBehaviour
     void start()
     {
         viewCamera = Camera.main;
+        tocero = 0;
     }
 
     void FixedUpdate()
@@ -44,18 +49,23 @@ public class StarshipController : MonoBehaviour
             speed = speed + 1 * Time.deltaTime;
         }
 
-        //Disparo
+        //Rotation
         lookDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
+        //Fire
         if (Input.GetMouseButton(0))
         {
-            InvokeRepeating("FireBullet", 0.05f, 10f);
+            if (tocero <= 0)
+            {
+                FireBullet();
+                tocero += countDown;
+            }
         }
-        else if (Input.GetMouseButtonUp(0))
+        if (tocero > 0)
         {
-            CancelInvoke("FireBullet");
+            tocero -= 1 * Time.deltaTime;
         }
     }
 
