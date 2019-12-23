@@ -47,10 +47,10 @@ public class EnemyController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
         //Player detection
-        
+
 
         //Movimiento
-        //transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime );
     }
     void FindVisibleTargets()
     {

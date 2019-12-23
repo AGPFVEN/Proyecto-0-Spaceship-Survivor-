@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class AsteroidController : MonoBehaviour
 {
-    public float health;
+    public float healthA;
 
     void Start()
     {
-      
+        healthA = 10f;
     }
 
     void FixedUpdate()
     {
-        print(health);
-        if(health < 0 || health == 0)
+        //Destruction of the asteroid in case of hit
+        print(healthA);
+        if (healthA <= 0)
         {
-            Destroy(this);
+            Destruction();
         }
     }
+
     void OnCollisionEnter2D(Collision2D col)
     {
-        health--;
+        healthA--;
+    }
+
+   void Destruction()
+    {
+        Destroy(this.gameObject);
     }
 }

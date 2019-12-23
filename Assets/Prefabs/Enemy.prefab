@@ -166,8 +166,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  movementSpeed: 3
+  movementSpeed: 1.5
   lookAngle: 0
   lookDirection: {x: 0, y: 0}
   viewRadius: 2
   viewAngle: 128
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
