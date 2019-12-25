@@ -165,13 +165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e11a0e5872157409b040ab31457c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 1551608104427375577, guid: 0b699084df4db8b4b8a5e8e3041b8929, type: 3}
   healthE: 100
-  Player: {fileID: 0}
   movementSpeed: 1.5
   lookAngle: 0
   lookDirection: {x: 0, y: 0}
   viewRadius: 2
   viewAngle: 128
+  distanceEP: 0
+  customdistanceEP: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 0

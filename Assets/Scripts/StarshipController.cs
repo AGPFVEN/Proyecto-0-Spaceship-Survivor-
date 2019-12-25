@@ -70,10 +70,10 @@ public class StarshipController : MonoBehaviour
     }
 
     //Disparo(función)
-    private void FireBullet()
+    public void FireBullet()
     {
-        GameObject firedBullet = Instantiate(Bullet, SpaceShip.position, SpaceShip.rotation);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = SpaceShip.up * 20f;
+        GameObject firedBullet = Instantiate(Bullet, transform.position, transform.rotation);
+        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
     }
 
     //Barra de Vida

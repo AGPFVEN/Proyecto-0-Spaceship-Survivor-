@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    //fire
+    public GameObject Bullet;
+    public GameObject SpaceShip;
+
     //Destroyable
     public float healthE;
 
-    Transform Target;
     //Rigidbody2D rigidbody;
     Camera viewcamera;
-    public GameObject Player;
     
     //Shift
     public float movementSpeed;
@@ -20,9 +22,11 @@ public class EnemyController : MonoBehaviour
     public Vector2 lookDirection;
 
     //Player detection
+    Transform Target;
     public float viewRadius;
-    [Range(0, 360)]
     public float viewAngle;
+    public float distanceEP;
+    public float customdistanceEP;
     public Vector3 DirFromAngle(float  angleInDegrees, bool angleIsGlobal)
     {
         if(!angleIsGlobal)
@@ -36,6 +40,8 @@ public class EnemyController : MonoBehaviour
 
     void start()
     {
+        
+
         //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
     }
@@ -56,7 +62,11 @@ public class EnemyController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
         //Player detection
-
+        distanceEP = Vector2.Distance(transform.position, Target.position - transform.position);
+        if(distanceEP <= customdistanceEP)
+        {
+            StarshipController.FireBullet();
+        }
 
         //Movimiento
         transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
