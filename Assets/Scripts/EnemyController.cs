@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
     //fire
     public GameObject Bullet;
     public GameObject SpaceShip;
+    float crono;
+    public float cronoL;
 
     //Destroyable
     public float healthE;
@@ -41,7 +43,8 @@ public class EnemyController : MonoBehaviour
     void start()
     {
         
-
+        //Cadencia
+        crono = 0;
         //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
     }
@@ -65,7 +68,15 @@ public class EnemyController : MonoBehaviour
         distanceEP = Vector2.Distance(transform.position, Target.position - transform.position);
         if(distanceEP <= customdistanceEP)
         {
-            StarshipController.FireBullet();
+            if (crono != cronoL)
+            {
+                crono += 1 * Time.deltaTime;
+            }
+            if (crono >= cronoL)
+            {
+                FireBullet();
+                crono = 0;
+            }
         }
 
         //Movimiento
@@ -78,5 +89,10 @@ public class EnemyController : MonoBehaviour
         {
             Transform target = targetsInViewRadius [i].transform;
         }
+    }
+    public void FireBullet()
+    {
+        GameObject firedBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0f, 0f, lookAngle));
+        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
     }
 }
