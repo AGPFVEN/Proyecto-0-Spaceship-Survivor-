@@ -7,8 +7,10 @@ public class EnemyController : MonoBehaviour
     //fire
     public GameObject Bullet;
     public GameObject SpaceShip;
+    public Quaternion fireRotation;
     float crono;
     public float cronoL;
+
 
     //Destroyable
     public float healthE;
@@ -51,6 +53,8 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        fireRotation = transform.rotation;
+
         //Destruction of the asteroid in case of hit
         if (healthE <= 0)
         {
@@ -80,7 +84,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //Movimiento
-        transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
     }
     void FindVisibleTargets()
     {
@@ -92,7 +96,7 @@ public class EnemyController : MonoBehaviour
     }
     public void FireBullet()
     {
-        GameObject firedBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0f, 0f, lookAngle));
+        GameObject firedBullet = Instantiate(Bullet, transform.position, fireRotation);
         firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
     }
 }
