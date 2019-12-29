@@ -49,11 +49,12 @@ public class EnemyController : MonoBehaviour
         crono = 0;
         //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
+        fireRotation = transform.rotation;
     }
 
     void FixedUpdate()
     {
-        fireRotation = transform.rotation;
+        
 
         //Destruction of the asteroid in case of hit
         if (healthE <= 0)
