@@ -24,12 +24,14 @@ public class StarshipController : MonoBehaviour
     //Rotation
     Camera viewCamera;
     private Vector2 lookDirection;
+    public Rigidbody2D rb;
     private float lookAngle;
 
     void start()
     {
         viewCamera = Camera.main;
         tocero = 0;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -72,7 +74,7 @@ public class StarshipController : MonoBehaviour
     //Disparo(función)
     public void FireBullet()
     {
-        GameObject firedBullet = Instantiate(Bullet, transform.position, transform.rotation);
+        GameObject firedBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0f, 0f, lookAngle - 90f));
         firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
     }
 

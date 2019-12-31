@@ -98,6 +98,6 @@ public class EnemyController : MonoBehaviour
     public void FireBullet()
     {
         GameObject firedBullet = Instantiate(Bullet, transform.position, fireRotation);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
+        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up *20f;
     }
 }
