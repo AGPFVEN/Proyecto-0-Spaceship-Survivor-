@@ -97,7 +97,7 @@ public class EnemyController : MonoBehaviour
     }
     public void FireBullet()
     {
-        GameObject firedBullet = Instantiate(Bullet, transform.position, fireRotation);
+        GameObject firedBullet = Instantiate(Bullet, transform.position, SpaceShip.transform.rotation);
         firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up *20f;
     }
 }
