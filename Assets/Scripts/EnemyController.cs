@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     //fire
     public GameObject Bullet;
     public GameObject SpaceShip;
-    public Quaternion fireRotation;
+    public Transform Barrel;
     float crono;
     public float cronoL;
 
@@ -49,13 +49,10 @@ public class EnemyController : MonoBehaviour
         crono = 0;
         //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
-        fireRotation = transform.rotation;
     }
 
     void FixedUpdate()
     {
-        
-
         //Destruction of the asteroid in case of hit
         if (healthE <= 0)
         {
@@ -97,7 +94,7 @@ public class EnemyController : MonoBehaviour
     }
     public void FireBullet()
     {
-        GameObject firedBullet = Instantiate(Bullet, transform.position, SpaceShip.transform.rotation);
+        GameObject firedBullet = Instantiate(Bullet, Barrel.position, transform.rotation);
         firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up *20f;
     }
 }

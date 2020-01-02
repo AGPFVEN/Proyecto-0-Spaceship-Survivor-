@@ -74,7 +74,7 @@ public class StarshipController : MonoBehaviour
     //Disparo(función)
     public void FireBullet()
     {
-        GameObject firedBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0f, 0f, lookAngle - 90f));
+        GameObject firedBullet = Instantiate(Bullet, SpaceShip.position, transform.rotation);
         firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
     }
 
