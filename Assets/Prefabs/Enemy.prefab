@@ -171,7 +171,7 @@ MonoBehaviour:
     type: 3}
   Barrel: {fileID: 4656319763277791197}
   cronoL: 1
-  healthE: 100
+  healthE: 5
   movementSpeed: 1.5
   lookAngle: 0
   lookDirection: {x: 0, y: 0}
