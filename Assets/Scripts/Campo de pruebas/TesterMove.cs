@@ -6,24 +6,56 @@ public class TesterMove : MonoBehaviour
 {
     public Vector2 lookDirection;
     public float lookAngle;
-    public float speed;
-    public float tLimit;
+
+    //Player detection
+    Transform Target;
+
+    //Distance
+    float distanceEP;
+    float customdistanceEP = 5;
+
+    //fire speedness
+    float crono;
+    float cronoL = 5;
+
+    //fire
+    public Transform Barrel;
+    public GameObject Bullet;
+
+    void Start()
+    {
+        crono = 0;
+    }
+
 
     void FixedUpdate()
     {
-        ////Movimiento 
-        float vInput = Input.GetAxis("Vertical");
-        transform.position += new Vector3(0, vInput * speed * Time.deltaTime * Time.deltaTime, 0);
-        float hInput = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(hInput * speed * Time.deltaTime * Time.deltaTime, 0, 0);
+        //Rotation to look Player
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
+        Debug.DrawLine(transform.position, Target.position);
+        lookDirection = Target.position - transform.position;
+        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
-        //Aceleración
-        if (tLimit > 0)
+        //fire or move
+        distanceEP = Vector2.Distance(transform.position, Target.position - transform.position);
+        if (distanceEP <= customdistanceEP)
         {
-            tLimit -= Time.deltaTime;
-            tLimit -= Time.deltaTime;
-            tLimit -= Time.deltaTime;
-            speed = speed + 1 * Time.deltaTime;
+            if (crono != cronoL)
+            {
+                crono += 1 * Time.deltaTime;
+            }
+            if (crono >= cronoL)
+            {
+                FireBullet();
+                crono = 0;
+            }
         }
+    }
+
+    public void FireBullet()
+    {
+        GameObject firedBullet = Instantiate(Bullet, Barrel.position, transform.rotation);
+        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
     }
 }
