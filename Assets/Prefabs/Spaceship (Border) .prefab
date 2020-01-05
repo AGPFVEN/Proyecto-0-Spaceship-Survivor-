@@ -107,10 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2380874f8ddabe48b9251a6f5b7dce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnerDL: {fileID: 8845809883346480688}
-  spawnerDR: {fileID: 1308075275971684718}
-  spawnerUL: {fileID: 1685419138882605061}
-  spawnerUR: {fileID: 3827121419586961990}
+  normalE: {fileID: 0}
+  spawnerDL: {fileID: 6805377979046452373}
+  spawnerDR: {fileID: 390874986583505954}
+  spawnerUL: {fileID: 3077953175975905514}
+  spawnerUR: {fileID: 3811805661152020491}
 --- !u!1 &3827121419586961990
 GameObject:
   m_ObjectHideFlags: 0

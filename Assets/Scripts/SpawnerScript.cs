@@ -5,22 +5,22 @@ using UnityEngine;
 public class SpawnerScript : MonoBehaviour
 {
     //Enemys 
-    public GameObject NormalE;
+    public GameObject normalE;
     //Prefab number
-    float spawnerNum;
+    int spawnerNum;
 
     //Crono
     float crono;
     float cronoL;
 
     //Prefabs
-    public GameObject spawnerDL;
-    public GameObject spawnerDR;
-    public GameObject spawnerUL;
-    public GameObject spawnerUR;
+    public Transform spawnerDL;
+    public Transform spawnerDR;
+    public Transform spawnerUL;
+    public Transform spawnerUR;
 
     //Prefabs to number
-    GameObject[] spawner;
+    Transform[] spawner;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class SpawnerScript : MonoBehaviour
         cronoL = 20;
 
         //Prefabs to number (start)
-        spawner = new GameObject[3];
+        spawner = new Transform[4];
         spawner[0] = spawnerDL;
         spawner[1] = spawnerDR;
         spawner[2] = spawnerUL;
@@ -39,8 +39,17 @@ public class SpawnerScript : MonoBehaviour
         spawnerNum = Random.Range(0, 3);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (crono == 0)
+        {
+            Instantiate(normalE, spawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
+            crono = 5;
+            spawnerNum = Random.Range(0, 3);
+        }
+        if (crono != 0)
+        {
+            crono -= 1 * Time.deltaTime;
+        }
     }
 }
