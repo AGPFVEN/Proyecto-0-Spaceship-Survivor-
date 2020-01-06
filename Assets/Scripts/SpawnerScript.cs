@@ -7,6 +7,7 @@ public class SpawnerScript : MonoBehaviour
     //Enemys 
     public GameObject normalE;
     public GameObject normalC;
+    GameObject actualC;
 
     //Prefab number
     int spawnerNum;
@@ -31,6 +32,10 @@ public class SpawnerScript : MonoBehaviour
     Transform[] eSpawner;
     Transform[] oSpawner;
 
+    //Modifying prefab
+    float Xscale;
+    float Yscale;
+
     void Start()
     {
         //Crono (start)
@@ -50,11 +55,12 @@ public class SpawnerScript : MonoBehaviour
         oSpawner[2] = oSpawnerUL;
         oSpawner[3] = oSpawnerUR;
 
-
         //Prefab num (start)
         spawnerNum = Random.Range(0, 3);
-        oSpawnerNum = Random.Range( 0, 3);
-        
+        oSpawnerNum = Random.Range(0, 3);
+
+        // //Modifying prefab (start)
+        actualC = normalC;
     }
 
     void FixedUpdate()
@@ -62,9 +68,15 @@ public class SpawnerScript : MonoBehaviour
         //enemy algorithm
         if (crono <= 0)
         {
+            Xscale = Random.Range(0, 5);
+            Yscale = Random.Range(0, 5);
+            actualC.transform.localScale = new Vector2(Xscale, Yscale);
             Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
+            Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
             crono = 5;
             spawnerNum = Random.Range(0, 3);
+            oSpawnerNum = Random.Range(0, 3);
+            actualC = normalC;
         }
         if (crono >= 0)
         {
