@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e11a0e5872157409b040ab31457c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 1551608104427375577, guid: 0b699084df4db8b4b8a5e8e3041b8929, type: 3}
+  Bullet: {fileID: 149218283216431731, guid: ac4915d3371dcc74fab9197744785f53, type: 3}
   SpaceShip: {fileID: 1729276960192501930, guid: 4d215174c4a13f94b8ac19698a278f8a,
     type: 3}
   Barrel: {fileID: 4656319763277791197}

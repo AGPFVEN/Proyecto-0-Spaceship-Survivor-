@@ -84,6 +84,12 @@ public class EnemyController : MonoBehaviour
         //Movimiento
         transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
     }
+
+    void OnCollisionEnter2D()
+    {
+        healthE--;
+    }
+
     void FindVisibleTargets()
     {
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);

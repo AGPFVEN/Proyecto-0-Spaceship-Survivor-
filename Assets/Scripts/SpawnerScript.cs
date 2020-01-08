@@ -23,6 +23,10 @@ public class SpawnerScript : MonoBehaviour
     public Transform spawnerUR;
 
     //Prefabs (obstacles)
+    public GameObject goSpawnerDL;
+    public GameObject goSpawnerDR;
+    public GameObject goSpawnerUL;
+    public GameObject goSpawnerUR;
     public Transform oSpawnerDL;
     public Transform oSpawnerDR;
     public Transform oSpawnerUL;
