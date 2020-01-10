@@ -22,12 +22,10 @@ public class AsteroidController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag != "No Wall")
+        if (col.gameObject.tag == "Player" || col.gameObject.tag == "Bullet")
         {
             healthA--;
-
         }
-        //if (collision.gameObject.name ==
     }
 
     void Destruction()
