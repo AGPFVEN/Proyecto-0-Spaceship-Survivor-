@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - NoWall
-  - Cube
+  - Bullet
+  - Enemy
+  - EnemyBullet
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -4,33 +4,36 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    //wall walking
+    Collider2D enemycollider;
+    bool colActivated;
+
     //fire
     public GameObject Bullet;
-    public GameObject SpaceShip;
     public Transform Barrel;
     float crono;
-    public float cronoL;
+    float cronoL;
 
 
     //Destroyable
-    public float healthE;
+    float healthE;
 
     //Rigidbody2D rigidbody;
     Camera viewcamera;
     
     //Shift
-    public float movementSpeed;
+    float movementSpeed;
 
     //Turn
-    public float lookAngle;
-    public Vector2 lookDirection;
+    float lookAngle;
+    Vector2 lookDirection;
 
     //Player detection
     Transform Target;
     public float viewRadius;
     public float viewAngle;
-    public float distanceEP;
-    public float customdistanceEP;
+    float distanceEP;
+    float customdistanceEP;
     public Vector3 DirFromAngle(float  angleInDegrees, bool angleIsGlobal)
     {
         if(!angleIsGlobal)
@@ -44,11 +47,19 @@ public class EnemyController : MonoBehaviour
 
     void start()
     {
-        
+        //Collider
+        healthE = 5;
+        colActivated = false;
+        enemycollider = GetComponent<Collider2D>();
+
         //Cadencia
+        customdistanceEP = 100;
         crono = 0;
+        cronoL = 1;
+
         //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
+        movementSpeed = 1;
     }
 
     void FixedUpdate()
@@ -76,8 +87,11 @@ public class EnemyController : MonoBehaviour
             }
             if (crono >= cronoL)
             {
-                FireBullet();
-                crono = 0;
+                if (colActivated == false)
+                {
+                    FireBullet();
+                    crono = 0;
+                }
             }
         }
 
@@ -85,9 +99,17 @@ public class EnemyController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
     }
 
-    void OnCollisionEnter2D()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        healthE--;
+        if (col.gameObject.tag == "Wall")
+        {
+            enemycollider.isTrigger = true;
+            colActivated = true;
+        }
+        else if(col.gameObject.tag != "Wall")
+        {
+            healthE--;
+        }
     }
 
     void FindVisibleTargets()
