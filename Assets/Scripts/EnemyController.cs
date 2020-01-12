@@ -5,15 +5,14 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //wall walking
-    Collider2D enemycollider;
+    PolygonCollider2D enemycollider;
     bool colActivated;
 
     //fire
     public GameObject Bullet;
     public Transform Barrel;
-    float crono;
-    float cronoL;
-
+    public float crono;
+    public float cronoL;
 
     //Destroyable
     float healthE;
@@ -32,8 +31,8 @@ public class EnemyController : MonoBehaviour
     Transform Target;
     public float viewRadius;
     public float viewAngle;
-    float distanceEP;
-    float customdistanceEP;
+    public float distanceEP;
+    public float customdistanceEP;
     public Vector3 DirFromAngle(float  angleInDegrees, bool angleIsGlobal)
     {
         if(!angleIsGlobal)
@@ -48,38 +47,47 @@ public class EnemyController : MonoBehaviour
     void start()
     {
         //Collider
-        healthE = 5;
+        healthE = 100;
         colActivated = false;
-        enemycollider = GetComponent<Collider2D>();
+        enemycollider = GetComponent<PolygonCollider2D>();
 
         //Cadencia
         customdistanceEP = 100;
         crono = 0;
-        cronoL = 1;
+        cronoL = 2;
 
         //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
         movementSpeed = 1;
+        Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void FixedUpdate()
     {
         //Destruction of the asteroid in case of hit
-        if (healthE <= 0)
+        if(colActivated == false)
         {
-            Destroy(gameObject);
+            enemycollider.isTrigger = true;
+            if(colActivated == true)
+            {
+                enemycollider.isTrigger = true;
+            }
         }
+        //if (healthE <= 0)
+        //{
+        //    Destroy(gameObject);
+        //}
 
-        //Rotation to look Player
+        ////Rotation to look Player
         Target = GameObject.FindGameObjectWithTag("Player").transform;
         Debug.DrawLine(transform.position, Target.position);
         lookDirection = Target.position - transform.position;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
-        //Player detection
+        ////Player detection
         distanceEP = Vector2.Distance(transform.position, Target.position - transform.position);
-        if(distanceEP <= customdistanceEP)
+        if (distanceEP <= customdistanceEP)
         {
             if (crono != cronoL)
             {
@@ -93,20 +101,20 @@ public class EnemyController : MonoBehaviour
                     crono = 0;
                 }
             }
+            print("distancia--> " + distanceEP + " crono---->" + crono);
         }
 
-        //Movimiento
-        transform.position = Vector2.MoveTowards(transform.position, Target.position, movementSpeed * Time.deltaTime);
+        ////Movimiento
+        transform.position = Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime);
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Wall")
         {
-            enemycollider.isTrigger = true;
             colActivated = true;
         }
-        else if(col.gameObject.tag != "Wall")
+        else if (col.gameObject.tag == "Player")
         {
             healthE--;
         }

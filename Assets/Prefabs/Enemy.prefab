@@ -94,7 +94,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -167,14 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 149218283216431731, guid: ac4915d3371dcc74fab9197744785f53, type: 3}
-  SpaceShip: {fileID: 1729276960192501930, guid: 4d215174c4a13f94b8ac19698a278f8a,
-    type: 3}
   Barrel: {fileID: 4656319763277791197}
-  cronoL: 1
-  healthE: 5
-  movementSpeed: 1
-  lookAngle: 0
-  lookDirection: {x: 0, y: 0}
+  crono: 0
+  cronoL: 2
   viewRadius: 2
   viewAngle: 128
   distanceEP: 0

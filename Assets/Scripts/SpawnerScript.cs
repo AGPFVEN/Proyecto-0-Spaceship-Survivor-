@@ -31,6 +31,8 @@ public class SpawnerScript : MonoBehaviour
     public Transform oSpawnerDR;
     public Transform oSpawnerUL;
     public Transform oSpawnerUR;
+    public Transform oSpawnerU;
+
 
     //Prefabs to number
     Transform[] eSpawner;
@@ -53,15 +55,16 @@ public class SpawnerScript : MonoBehaviour
         eSpawner[3] = spawnerUR;
 
         //Obstacle Prefabs to number (start)
-        oSpawner = new Transform[4];
+        oSpawner = new Transform[5];
         oSpawner[0] = oSpawnerDL;
         oSpawner[1] = oSpawnerDR;
         oSpawner[2] = oSpawnerUL;
         oSpawner[3] = oSpawnerUR;
+        oSpawner[4] = oSpawnerU;
 
         //Prefab num (start)
         spawnerNum = Random.Range(0, 3);
-        oSpawnerNum = Random.Range(0, 3);
+        oSpawnerNum = Random.Range(0, 4);
 
         // //Modifying prefab (start)
         actualC = normalC;
