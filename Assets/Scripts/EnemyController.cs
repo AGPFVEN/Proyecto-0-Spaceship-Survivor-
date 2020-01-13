@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //wall walking
-    PolygonCollider2D enemycollider;
+    Collider2D enemycollider;
     bool colActivated;
 
     //fire
@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
         //Collider
         healthE = 100;
         colActivated = false;
-        enemycollider = GetComponent<PolygonCollider2D>();
+        enemycollider = GetComponent<Collider2D>();
 
         //Cadencia
         customdistanceEP = 100;
