@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //wall walking
-    Collider2D enemycollider;
+    Collider2D wallcollider;
+    Collider2D normalcollider;
     bool colActivated;
 
     //fire
@@ -49,7 +50,7 @@ public class EnemyController : MonoBehaviour
         //Collider
         healthE = 100;
         colActivated = false;
-        enemycollider = GetComponent<Collider2D>();
+        normalcollider = GetComponent<Collider2D>();
 
         //Cadencia
         customdistanceEP = 100;
@@ -58,25 +59,25 @@ public class EnemyController : MonoBehaviour
 
         //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
-        movementSpeed = 1;
+        movementSpeed = 0;
         Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void FixedUpdate()
     {
-        //Destruction of the asteroid in case of hit
-        if(colActivated == false)
-        {
-            enemycollider.isTrigger = true;
-            if(colActivated == true)
-            {
-                enemycollider.isTrigger = true;
-            }
-        }
-        //if (healthE <= 0)
+        ////Destruction of the asteroid in case of hit
+        //if (colActivated == false)
         //{
-        //    Destroy(gameObject);
+        //    //if (colActivated == true)
+        //    //{
+        //    //    enemycollider.isTrigger = true;
+        //    //}
+        //    enemycollider.isTrigger = true;
         //}
+        ////if (healthE <= 0)
+        ////{
+        ////    Destroy(gameObject);
+        ////}
 
         ////Rotation to look Player
         Target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -91,20 +92,20 @@ public class EnemyController : MonoBehaviour
         {
             if (crono != cronoL)
             {
-                crono += 1 * Time.deltaTime;
-            }
-            if (crono >= cronoL)
-            {
-                if (colActivated == false)
+                if (crono >= cronoL)
                 {
-                    FireBullet();
-                    crono = 0;
+                    if (colActivated == false)
+                    {
+                        FireBullet();
+                        crono = 0;
+                    }
                 }
+                crono += 1 * Time.deltaTime;
             }
             print("distancia--> " + distanceEP + " crono---->" + crono);
         }
 
-        ////Movimiento
+        //Movimiento
         transform.position = Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime);
     }
 
@@ -114,7 +115,7 @@ public class EnemyController : MonoBehaviour
         {
             colActivated = true;
         }
-        else if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
             healthE--;
         }
