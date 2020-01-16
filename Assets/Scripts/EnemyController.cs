@@ -51,6 +51,7 @@ public class EnemyController : MonoBehaviour
         healthE = 100;
         colActivated = false;
         normalcollider = GetComponent<Collider2D>();
+        wallcollider = GetComponentInChildren<Collider2D>(true);
 
         //Cadencia
         customdistanceEP = 100;
@@ -78,6 +79,11 @@ public class EnemyController : MonoBehaviour
         ////{
         ////    Destroy(gameObject);
         ////}
+       
+        if (wallcollider == true)
+        {
+            print("Hello there");
+        }
 
         ////Rotation to look Player
         Target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -102,7 +108,6 @@ public class EnemyController : MonoBehaviour
                 }
                 crono += 1 * Time.deltaTime;
             }
-            print("distancia--> " + distanceEP + " crono---->" + crono);
         }
 
         //Movimiento
