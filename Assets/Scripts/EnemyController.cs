@@ -5,8 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //wall walking
-    Collider2D wallcollider;
-    Collider2D normalcollider;
+    Collider2D enemycollider;
     bool colActivated;
 
     //fire
@@ -49,9 +48,8 @@ public class EnemyController : MonoBehaviour
     {
         //Collider
         healthE = 100;
-        colActivated = false;
-        normalcollider = GetComponent<Collider2D>();
-        wallcollider = GetComponentInChildren<Collider2D>(true);
+        //colActivated = false;
+        enemycollider = GetComponent<BoxCollider2D>();
 
         //Cadencia
         customdistanceEP = 100;
@@ -69,18 +67,18 @@ public class EnemyController : MonoBehaviour
         ////Destruction of the asteroid in case of hit
         //if (colActivated == false)
         //{
-        //    //if (colActivated == true)
-        //    //{
-        //    //    enemycollider.isTrigger = true;
-        //    //}
-        //    enemycollider.isTrigger = true;
+        //    enemycollider.isTrigger = false;
+        //    if (colActivated == true)
+        //    {
+        //        enemycollider.isTrigger = true;
+        //    }
         //}
-        ////if (healthE <= 0)
-        ////{
-        ////    Destroy(gameObject);
-        ////}
-       
-        if (wallcollider == true)
+        //if (healthE <= 0)
+        //{
+        //    Destroy(gameObject);
+        //}
+
+        if (enemycollider == false)
         {
             print("Hello there");
         }
@@ -109,20 +107,27 @@ public class EnemyController : MonoBehaviour
                 crono += 1 * Time.deltaTime;
             }
         }
-
         //Movimiento
         transform.position = Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    public void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Wall")
         {
-            colActivated = true;
+            enemycollider.isTrigger = false;
         }
+
         if (col.gameObject.tag == "Player")
         {
             healthE--;
+        }
+    }
+    public void OnTriggerEnter2D(BoxCollider2D collision)
+    {
+        if (collision.gameObject.tag != "Wall")
+        {
+            enemycollider.isTrigger = false;
         }
     }
 

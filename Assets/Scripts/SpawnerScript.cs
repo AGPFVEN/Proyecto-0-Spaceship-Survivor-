@@ -33,7 +33,6 @@ public class SpawnerScript : MonoBehaviour
     public Transform oSpawnerUR;
     public Transform oSpawnerU;
 
-
     //Prefabs to number
     Transform[] eSpawner;
     Transform[] oSpawner;
