@@ -65,7 +65,6 @@ public class EnemyController : MonoBehaviour
     {
         ////Rotation to look Player
         Target = GameObject.FindGameObjectWithTag("Player").transform;
-        Debug.DrawLine(transform.position, Target.position);
         lookDirection = Target.position - transform.position;
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
@@ -92,6 +91,7 @@ public class EnemyController : MonoBehaviour
         if(!colActivated)
         {
             transform.position = Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime);
+            Debug.DrawLine(transform.position, Target.position);
         }
 
         //Colliders
@@ -105,18 +105,21 @@ public class EnemyController : MonoBehaviour
                 changedone = true;
             }
 
-            transform.position = Vector2.MoveTowards(transform.position + new Vector3(0, 0, 10), Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position + new Vector3(0, 0, 10), Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
 
             Physics.Raycast(transform.position, transform.forward, out enemyhit);
-            Debug.DrawRay(transform.position, transform.forward);
+            transform.position =  Vector3.MoveTowards(transform.position, Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
+            Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime) , Color.red);
+            //Debug.DrawLine(transform.position, Target.position + new Vector3(0, 0, 10));
+
+            print(colActivated);
         }
     }
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        while (col.gameObject.tag == "Wall")
+        if (col.gameObject.tag == "Wall")
         {
-            transform.position += new Vector3(0, 0, 10);
             colActivated = true;
         }
 
