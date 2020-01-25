@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //wall walking
-    Collider2D enemycollider;
     bool colActivated;
+    bool changedone;
 
     //fire
     public GameObject Bullet;
@@ -48,8 +48,7 @@ public class EnemyController : MonoBehaviour
     {
         //Collider
         healthE = 100;
-        //colActivated = false;
-        enemycollider = GetComponent<BoxCollider2D>();
+        changedone = false;
 
         //Cadencia
         customdistanceEP = 100;
@@ -64,25 +63,6 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        ////Destruction of the asteroid in case of hit
-        //if (colActivated == false)
-        //{
-        //    enemycollider.isTrigger = false;
-        //    if (colActivated == true)
-        //    {
-        //        enemycollider.isTrigger = true;
-        //    }
-        //}
-        //if (healthE <= 0)
-        //{
-        //    Destroy(gameObject);
-        //}
-
-        if (enemycollider == false)
-        {
-            print("Hello there");
-        }
-
         ////Rotation to look Player
         Target = GameObject.FindGameObjectWithTag("Player").transform;
         Debug.DrawLine(transform.position, Target.position);
@@ -107,27 +87,42 @@ public class EnemyController : MonoBehaviour
                 crono += 1 * Time.deltaTime;
             }
         }
+
         //Movimiento
-        transform.position = Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime);
+        if(!colActivated)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime);
+        }
+
+        //Colliders
+
+        RaycastHit enemyhit;
+        if (colActivated == true)
+        {
+            if (changedone == false)
+            {
+                transform.position += new Vector3(0, 0, 10);
+                changedone = true;
+            }
+
+            transform.position = Vector2.MoveTowards(transform.position + new Vector3(0, 0, 10), Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
+
+            Physics.Raycast(transform.position, transform.forward, out enemyhit);
+            Debug.DrawRay(transform.position, transform.forward);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Wall")
+        while (col.gameObject.tag == "Wall")
         {
-            enemycollider.isTrigger = false;
+            transform.position += new Vector3(0, 0, 10);
+            colActivated = true;
         }
 
         if (col.gameObject.tag == "Player")
         {
             healthE--;
-        }
-    }
-    public void OnTriggerEnter2D(BoxCollider2D collision)
-    {
-        if (collision.gameObject.tag != "Wall")
-        {
-            enemycollider.isTrigger = false;
         }
     }
 

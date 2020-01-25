@@ -240,7 +240,7 @@ Transform:
   - {fileID: 4247184148822461650}
   - {fileID: 2026341577891685558}
   m_Father: {fileID: 6773535125038052163}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7857835798136889693
 MonoBehaviour:
@@ -533,6 +533,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 6773535124874591994}
+  - {fileID: 8990164119766048072}
   - {fileID: 8520613641439725025}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -677,6 +678,36 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   Starship: {fileID: 0}
   rb: {fileID: 6773535125038052162}
+--- !u!1 &8050698353763522578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8990164119766048072}
+  m_Layer: 0
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8990164119766048072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050698353763522578}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6773535125038052163}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8845809883346480688
 GameObject:
   m_ObjectHideFlags: 0
