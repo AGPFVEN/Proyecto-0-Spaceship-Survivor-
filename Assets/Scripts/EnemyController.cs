@@ -108,8 +108,10 @@ public class EnemyController : MonoBehaviour
             //transform.position = Vector2.MoveTowards(transform.position + new Vector3(0, 0, 10), Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
 
             Physics.Raycast(transform.position, transform.forward, out enemyhit);
-            transform.position =  Vector3.MoveTowards(transform.position, Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
             Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime) , Color.red);
+            transform.position = Vector3.MoveTowards(transform.position, Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
+
+
             //Debug.DrawLine(transform.position, Target.position + new Vector3(0, 0, 10));
 
             print(colActivated);
