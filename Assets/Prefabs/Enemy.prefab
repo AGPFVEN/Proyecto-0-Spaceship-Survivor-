@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4847643537598916046}
   - component: {fileID: 6729333222992217433}
   - component: {fileID: 4847643537598916045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e11a0e5872157409b040ab31457c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetShadow: {fileID: 0}
   Bullet: {fileID: 149218283216431731, guid: ac4915d3371dcc74fab9197744785f53, type: 3}
   Barrel: {fileID: 4656319763277791197}
   crono: 0
@@ -166,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4656319763277791197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelS
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -113,8 +113,6 @@ public class EnemyController : MonoBehaviour
 
 
             //Debug.DrawLine(transform.position, Target.position + new Vector3(0, 0, 10));
-
-            print(colActivated);
         }
     }
 
