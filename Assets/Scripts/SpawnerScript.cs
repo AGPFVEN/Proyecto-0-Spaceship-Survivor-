@@ -44,7 +44,7 @@ public class SpawnerScript : MonoBehaviour
     void Start()
     {
         //Crono (start)
-        crono = 0;
+        crono = 1;
 
         //Enemy Prefabs to number (start)
         eSpawner = new Transform[4];
@@ -63,10 +63,19 @@ public class SpawnerScript : MonoBehaviour
 
         //Prefab num (start)
         spawnerNum = Random.Range(0, 3);
+        actualC = normalC;
         oSpawnerNum = Random.Range(0, 4);
 
+        //first spawn 
+        //Xscale = Random.Range(0, 5);
+        //Yscale = Random.Range(0, 5);
+        //actualC.transform.localScale = new Vector2(Xscale, Yscale);
+        //Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
+        //Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
+        //spawnerNum = Random.Range(0, 3);
+        //oSpawnerNum = Random.Range(0, 3);
+
         // //Modifying prefab (start)
-        actualC = normalC;
     }
 
     void FixedUpdate()
@@ -88,5 +97,6 @@ public class SpawnerScript : MonoBehaviour
         {
             crono -= 1 * Time.deltaTime;
         }
+        print(crono);
     }
 }
