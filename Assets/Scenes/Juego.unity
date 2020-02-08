@@ -767,6 +767,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1493765284}
+    - target: {fileID: 853276388258280349, guid: 8a21e62d8fa9ee1439a6fbcf46d05331,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a21e62d8fa9ee1439a6fbcf46d05331, type: 3}
 --- !u!4 &1729276959481507774 stripped

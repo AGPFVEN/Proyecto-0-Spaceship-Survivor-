@@ -20,5 +20,12 @@ public class NoAsteroidSpawn : MonoBehaviour
         //}
 
         Debug.DrawRay(transform.position, transform.up * 10, Color.green);
+        Debug.DrawRay(transform.position, -transform.up * 10, Color.green);
+        Debug.DrawRay(transform.position, transform.right * 10, Color.green);
+        Debug.DrawRay(transform.position, -transform.right * 10, Color.green);
+        Debug.DrawRay(transform.position, (transform.up - transform.right) * 10, Color.green);
+        Debug.DrawRay(transform.position, (transform.up + transform.right) * 10, Color.green);
+        Debug.DrawRay(transform.position, (-transform.up - transform.right) * 10, Color.green);
+        Debug.DrawRay(transform.position, (-transform.up + transform.right) * 10, Color.green);
     }
 }
