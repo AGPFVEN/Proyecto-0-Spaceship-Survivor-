@@ -3,59 +3,109 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TesterMove : MonoBehaviour
+//Enemys 
 {
-    public Vector2 lookDirection;
-    public float lookAngle;
+    //Spawn?
+    bool spawnnow;
 
-    //Player detection
-    Transform Target;
+    //Enemys 
+    public GameObject normalE;
+    public GameObject normalC;
+    GameObject actualC;
 
-    //Distance
-    float distanceEP;
-    float customdistanceEP = 5;
+    //Prefab number
+    int spawnerNum;
+    int oSpawnerNum;
 
-    //fire speedness
+    //Crono
     float crono;
-    float cronoL = 5;
 
-    //fire
-    public Transform Barrel;
-    public GameObject Bullet;
+    //Prefabs (enemy)
+    public Transform spawnerDL;
+    public Transform spawnerDR;
+    public Transform spawnerUL;
+    public Transform spawnerUR;
+
+    //Prefabs (obstacles)
+    public GameObject goSpawnerDL;
+    public GameObject goSpawnerDR;
+    public GameObject goSpawnerUL;
+    public GameObject goSpawnerUR;
+    public Transform oSpawnerDL;
+    public Transform oSpawnerDR;
+    public Transform oSpawnerUL;
+    public Transform oSpawnerUR;
+    public Transform oSpawnerU;
+
+    //Prefabs to number
+    Transform[] eSpawner;
+    Transform[] oSpawner;
+
+    //Modifying prefab
+    float Xscale;
+    float Yscale;
 
     void Start()
     {
-        crono = 0;
-    }
+        //Spawn now?
+        spawnnow = true;
 
+        //Crono (start)
+        crono = 1;
+
+        //Enemy Prefabs to number (start)
+        eSpawner = new Transform[4];
+        eSpawner[0] = spawnerDL;
+        eSpawner[1] = spawnerDR;
+        eSpawner[2] = spawnerUL;
+        eSpawner[3] = spawnerUR;
+
+        //Obstacle Prefabs to number (start)
+        oSpawner = new Transform[5];
+        oSpawner[0] = oSpawnerDL;
+        oSpawner[1] = oSpawnerDR;
+        oSpawner[2] = oSpawnerUL;
+        oSpawner[3] = oSpawnerUR;
+        oSpawner[4] = oSpawnerU;
+
+        //Prefab num (start)
+        spawnerNum = Random.Range(0, 3);
+        actualC = normalC;
+        oSpawnerNum = Random.Range(0, 4);
+
+        //first spawn 
+        //Xscale = Random.Range(0, 5);
+        //Yscale = Random.Range(0, 5);
+        //actualC.transform.localScale = new Vector2(Xscale, Yscale);
+        //Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
+        //Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
+        //spawnerNum = Random.Range(0, 3);
+        //oSpawnerNum = Random.Range(0, 3);
+
+        // //Modifying prefab (start)
+    }
 
     void FixedUpdate()
     {
-        //Rotation to look Player
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
-        Debug.DrawLine(transform.position, Target.position);
-        lookDirection = Target.position - transform.position;
-        lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
-        //fire or move
-        distanceEP = Vector2.Distance(transform.position, Target.position - transform.position);
-        if (distanceEP <= customdistanceEP)
+        //enemy algorithm
+        if (crono <= 0)
         {
-            if (crono != cronoL)
-            {
-                crono += 1 * Time.deltaTime;
-            }
-            if (crono >= cronoL)
-            {
-                FireBullet();
-                crono = 0;
-            }
+            
+            //Xscale = Random.Range(0, 5);
+            //Yscale = Random.Range(0, 5);
+            //actualC.transform.localScale = new Vector2(Xscale, Yscale);
+            //Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
+            //Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
+            //crono = 5;
+            //spawnerNum = Random.Range(0, 3);
+            //oSpawnerNum = Random.Range(0, 3);
+            //actualC = normalC;
         }
-    }
-
-    public void FireBullet()
-    {
-        GameObject firedBullet = Instantiate(Bullet, Barrel.position, transform.rotation);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
+        if (crono >= 0)
+        {
+            crono -= 1 * Time.deltaTime;
+        }
+        print(crono);
     }
 }

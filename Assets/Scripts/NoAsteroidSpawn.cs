@@ -4,32 +4,21 @@ using UnityEngine;
 
 public class NoAsteroidSpawn : MonoBehaviour
 {
-    public bool anoser; 
-
-    void Start()
+    private void Start()
     {
-        anoser = false;
-    }
 
-    void OnCollisionEnter2D()
+    }
+    private void FixedUpdate()
     {
-        anoser = true;
-    }
+        //if(Physics2D.Raycast(transform.position, transform.forward))
+        //{
+        //    Debug.DrawRay(transform.position, transform.forward * 10, Color.red);
+        //}
+        //else
+        //{
+        //    Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
+        //}
 
-    void OnCollisionExit()
-    {
-        anoser = false;
+        Debug.DrawRay(transform.position, transform.up * 10, Color.green);
     }
-
-    //public bool Nocool ()
-    //{
-    //    if (2 < 3)
-    //    {
-    //        return(true);
-    //    }
-    //    else
-    //    {
-    //        return(false);
-    //    }
-    //}
 }
