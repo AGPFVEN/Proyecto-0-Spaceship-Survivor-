@@ -73,7 +73,7 @@ public class TesterMove : MonoBehaviour
         actualC = normalC;
         oSpawnerNum = Random.Range(0, 4);
 
-        //first spawn 
+        //first spawn (Obstacles)
         RandomizeObstacle();
         Instantiate(actualC, oSpawner[0].transform.position, transform.rotation);
         RandomizeObstacle();
@@ -82,6 +82,7 @@ public class TesterMove : MonoBehaviour
         Instantiate(actualC, oSpawner[2].transform.position, transform.rotation);
         RandomizeObstacle();
         Instantiate(actualC, oSpawner[3].transform.position, transform.rotation);
+
 
 
         //Xscale = Random.Range(0, 5);
@@ -101,17 +102,13 @@ public class TesterMove : MonoBehaviour
         //enemy algorithm
         if (crono <= 0)
         {
-
-
-            //Xscale = Random.Range(0, 5);
-            //Yscale = Random.Range(0, 5);
-            //actualC.transform.localScale = new Vector2(Xscale, Yscale);
-            //Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
-            //Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
-            //crono = 5;
-            //spawnerNum = Random.Range(0, 3);
-            //oSpawnerNum = Random.Range(0, 3);
-            //actualC = normalC;
+            RandomizeObstacle();
+            Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
+            Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
+            crono = 5;
+            spawnerNum = Random.Range(0, 3);
+            oSpawnerNum = Random.Range(0, 3);
+            actualC = normalC;
         }
         if (crono >= 0)
         {
@@ -127,6 +124,7 @@ public class TesterMove : MonoBehaviour
         actualC.transform.localScale = new Vector2(Xscale, Yscale);
     }
 
+    //modifying prefabs 
     void Createobstacle()
     {
         Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
