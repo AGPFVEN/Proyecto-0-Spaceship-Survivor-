@@ -82,5 +82,9 @@ public class NoAsteroidSpawn : MonoBehaviour
         {
             sichoca = false;
         }
+        else
+        {
+            sichoca = true;
+        }
     }
 }
