@@ -103,7 +103,6 @@ public class SpawnerScript : MonoBehaviour
         {
             crono -= 1 * Time.deltaTime;
         }
-        print(crono);
     }
 
     //Modifying obstacles

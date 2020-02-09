@@ -114,7 +114,6 @@ public class TesterMove : MonoBehaviour
         {
             crono -= 1 * Time.deltaTime;
         }
-        print(crono);
     }
 
     void RandomizeObstacle()

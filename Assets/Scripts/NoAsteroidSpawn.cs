@@ -5,15 +5,23 @@ using UnityEngine;
 public class NoAsteroidSpawn : MonoBehaviour
 {
     bool spawnallowed;
-    bool sichoca;
-    Color chocaar= Color.green;
-    Color chocaab = Color.green;
-    Color chocade = Color.green;
-    Color chocaiz= Color.green;
-    Color chocaarde = Color.green;
-    Color chocaariz = Color.green;
-    Color chocaabde = Color.green;
-    Color chocaabiz = Color.green;
+    bool sichocaar = true;
+    bool sichocaab = true;
+    bool sichocade = true;
+    bool sichocaiz = true;
+    bool sichocaarde = true;
+    bool sichocaariz = true;
+    bool sichocaabde = true;
+    bool sichocaabiz = true;
+
+    Color chocaar = Color.green;
+    Color chocaab;
+    Color chocade;
+    Color chocaiz;
+    Color chocaarde;
+    Color chocaariz;
+    Color chocaabde;
+    Color chocaabiz;
 
 
     private void Start()
@@ -23,14 +31,14 @@ public class NoAsteroidSpawn : MonoBehaviour
     private void FixedUpdate()
     {
         //Colors
-        elcolorazo(chocaar);
-        elcolorazo(chocaab);
-        elcolorazo(chocade);
-        elcolorazo(chocaiz);
-        elcolorazo(chocaarde);
-        elcolorazo(chocaariz);
-        elcolorazo(chocaabde);
-        elcolorazo(chocaabiz);
+        elcolorazo(chocaar, sichocaar);
+        elcolorazo(chocaab, sichocaab);
+        elcolorazo(chocade, sichocade);
+        elcolorazo(chocaiz, sichocaiz);
+        elcolorazo(chocaarde, sichocaarde);
+        elcolorazo(chocaariz, sichocaariz);
+        elcolorazo(chocaabde, sichocaabde);
+        elcolorazo(chocaabiz, sichocaabiz);
 
 
         //Creando los drawrays
@@ -54,37 +62,37 @@ public class NoAsteroidSpawn : MonoBehaviour
         Physics.Raycast(transform.position, (-transform.up - transform.right), out abajode, 10);
         Physics.Raycast(transform.position, (-transform.up + transform.right), out abajoizq, 10);
 
-        elrayazo(arriba);
-        elrayazo(abajo);
-        elrayazo(izquierda);
-        elrayazo(derecha);
-        elrayazo(arribade);
-        elrayazo(arribaizq);
-        elrayazo(abajode);
-        elrayazo(abajoizq);
+        //elrayazo(arriba, sichocaar);
+        //elrayazo(abajo, sichocaab);
+        //elrayazo(izquierda, sichocaiz);
+        //elrayazo(derecha, sichocade);
+        //elrayazo(arribade, sichocaarde);
+        //elrayazo(arribaizq, sichocaariz);
+        //elrayazo(abajode, sichocaabde);
+        //elrayazo(abajoizq, sichocaabiz);
     }
 
-    void elcolorazo(Color elcolor)
+    void elcolorazo(Color elcolor, bool sichoca)
     {
-        if (sichoca == false)
-        {
-            elcolor = Color.red;
-        }
-        else
+        if (sichoca == true)
         {
             elcolor = Color.green;
         }
-    }
-
-    void elrayazo(RaycastHit elrayo)
-    {
-        if(elrayo.collider == true)
-        {
-            sichoca = false;
-        }
         else
         {
-            sichoca = true;
+            elcolor = Color.red;
         }
     }
+
+    //void elrayazo(RaycastHit elrayo, bool sichoca)
+    //{
+    //    if(elrayo.collider == true)
+    //    {
+    //        sichoca = false;
+    //    }
+    //    else
+    //    {
+    //        sichoca = true;
+    //    }
+    //}
 }
