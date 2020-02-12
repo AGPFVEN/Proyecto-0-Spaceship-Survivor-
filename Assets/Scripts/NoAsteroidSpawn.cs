@@ -30,17 +30,6 @@ public class NoAsteroidSpawn : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //Colors
-        elcolorazo(chocaar, sichocaar);
-        elcolorazo(chocaab, sichocaab);
-        elcolorazo(chocade, sichocade);
-        elcolorazo(chocaiz, sichocaiz);
-        elcolorazo(chocaarde, sichocaarde);
-        elcolorazo(chocaariz, sichocaariz);
-        elcolorazo(chocaabde, sichocaabde);
-        elcolorazo(chocaabiz, sichocaabiz);
-
-
         //Creando los drawrays
         Debug.DrawRay(transform.position, transform.up * 10, chocaar);
         Debug.DrawRay(transform.position, -transform.up * 10, chocaab);
@@ -69,24 +58,34 @@ public class NoAsteroidSpawn : MonoBehaviour
         //elrayazo(arribade, sichocaarde);
         //elrayazo(arribaizq, sichocaariz);
         //elrayazo(abajode, sichocaabde);
-        //elrayazo(abajoizq, sichocaabiz);
+        //elrayazo(abajoizq, sichocaabiz)
+
+        //Colors
+        elcolorazo(chocaar, sichocaar, arriba);
+        //elcolorazo(chocaab, sichocaab);
+        //elcolorazo(chocade, sichocade);
+        //elcolorazo(chocaiz, sichocaiz);
+        //elcolorazo(chocaarde, sichocaarde);
+        //elcolorazo(chocaariz, sichocaariz);
+        //elcolorazo(chocaabde, sichocaabde);
+        //elcolorazo(chocaabiz, sichocaabiz);
     }
 
-    void elcolorazo(Color elcolor, bool sichoca)
+    void elcolorazo(Color elcolor, bool sichoca, RaycastHit elrayo)
     {
-        if (sichoca == true)
+        if (elrayo.collider == true)
         {
-            elcolor = Color.green;
+            elcolor = Color.red;
         }
         else
         {
-            elcolor = Color.red;
+            elcolor = Color.green;
         }
     }
 
     //void elrayazo(RaycastHit elrayo, bool sichoca)
     //{
-    //    if(elrayo.collider == true)
+    //    if (elrayo.collider == true)
     //    {
     //        sichoca = false;
     //    }
