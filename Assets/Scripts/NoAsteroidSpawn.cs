@@ -42,7 +42,7 @@ public class NoAsteroidSpawn : MonoBehaviour
 
         //Raycast
         RaycastHit arriba, abajo, derecha, izquierda, arribade, arribaizq, abajode, abajoizq;
-        Physics.Raycast(transform.position, transform.up, out arriba, 10);
+        Physics.Raycast(transform.position, transform.up, out arriba);
         Physics.Raycast(transform.position, -transform.up, out abajo, 10);
         Physics.Raycast(transform.position, transform.right, out derecha, 10);
         Physics.Raycast(transform.position, -transform.right, out izquierda, 10);
@@ -61,7 +61,7 @@ public class NoAsteroidSpawn : MonoBehaviour
         //elrayazo(abajoizq, sichocaabiz)
 
         //Colors
-        elcolorazo(chocaar, sichocaar, arriba);
+        //elcolorazo(chocaar, sichocaar, arriba);
         //elcolorazo(chocaab, sichocaab);
         //elcolorazo(chocade, sichocade);
         //elcolorazo(chocaiz, sichocaiz);
@@ -69,19 +69,44 @@ public class NoAsteroidSpawn : MonoBehaviour
         //elcolorazo(chocaariz, sichocaariz);
         //elcolorazo(chocaabde, sichocaabde);
         //elcolorazo(chocaabiz, sichocaabiz);
+        
+        
+            if (arriba.collider == false)
+            {
+                chocaar = Color.red;
+                print("choca");
+            }
+            else
+            {
+                chocaar = Color.green;
+            }
+        
     }
 
-    void elcolorazo(Color elcolor, bool sichoca, RaycastHit elrayo)
+    void Doescollide(RaycastHit voidhit, bool voidbool, Color voidcolor)
     {
-        if (elrayo.collider == true)
+        if(voidhit.collider == false)
         {
-            elcolor = Color.red;
+            voidcolor = Color.green;
         }
         else
         {
-            elcolor = Color.green;
+            voidcolor = Color.red;
         }
     }
+
+    //void elcolorazo(Color elcolor, bool sichoca, RaycastHit elrayo)
+    //{
+    //    if (elrayo.collider == true)
+    //    {
+    //        elcolor = Color.red;
+    //        print("choca");
+    //    }
+    //    else
+    //    {
+    //        elcolor = Color.green;
+    //    }
+    //}
 
     //void elrayazo(RaycastHit elrayo, bool sichoca)
     //{
