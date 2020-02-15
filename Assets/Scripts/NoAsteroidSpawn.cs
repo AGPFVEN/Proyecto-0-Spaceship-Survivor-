@@ -14,7 +14,7 @@ public class NoAsteroidSpawn : MonoBehaviour
     bool sichocaabde = true;
     bool sichocaabiz = true;
 
-    Color chocaar = Color.green;
+    Color chocaar;
     Color chocaab;
     Color chocade;
     Color chocaiz;
@@ -51,6 +51,18 @@ public class NoAsteroidSpawn : MonoBehaviour
         Physics.Raycast(transform.position, (-transform.up - transform.right), out abajode, 10);
         Physics.Raycast(transform.position, (-transform.up + transform.right), out abajoizq, 10);
 
+        //funcion
+        //Doescollide(arriba, sichocaar, chocaar);
+        if (arriba.collider == false)
+        {
+            chocaar = Color.red;
+            print("choca");
+        }
+        else
+        {
+            chocaar = Color.green;
+        }
+
         //elrayazo(arriba, sichocaar);
         //elrayazo(abajo, sichocaab);
         //elrayazo(izquierda, sichocaiz);
@@ -69,18 +81,7 @@ public class NoAsteroidSpawn : MonoBehaviour
         //elcolorazo(chocaariz, sichocaariz);
         //elcolorazo(chocaabde, sichocaabde);
         //elcolorazo(chocaabiz, sichocaabiz);
-        
-        
-            if (arriba.collider == false)
-            {
-                chocaar = Color.red;
-                print("choca");
-            }
-            else
-            {
-                chocaar = Color.green;
-            }
-        
+
     }
 
     void Doescollide(RaycastHit voidhit, bool voidbool, Color voidcolor)
