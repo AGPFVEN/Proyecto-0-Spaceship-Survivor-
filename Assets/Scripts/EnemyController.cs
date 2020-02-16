@@ -21,7 +21,6 @@ public class EnemyController : MonoBehaviour
     Camera viewcamera;
     
     //Shift
-    float slowness;
     float movementSpeed;
 
     //Turn
@@ -96,17 +95,8 @@ public class EnemyController : MonoBehaviour
         //Movimiento
         if(!colActivated)
         {
-            if (slowness <= 0)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
-                Debug.DrawLine(transform.position, Target.position);
-            }
-            else
-            {
-                transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime / slowness);
-                Debug.DrawLine(transform.position, Target.position);
-                slowness -= 1 * Time.deltaTime;
-            }
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
+            Debug.DrawLine(transform.position, Target.position);
         }
 
         //Colliders
@@ -138,9 +128,7 @@ public class EnemyController : MonoBehaviour
             colActivated = true;
         }
 
-        else
         {
-            slowness++;
             healthE--;
         }
     }
