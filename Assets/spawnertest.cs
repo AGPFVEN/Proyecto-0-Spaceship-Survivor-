@@ -11,7 +11,7 @@ public class spawnertest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate<GameObject>(object2spawn, place);
+        Instantiate(object2spawn, place.position, transform.rotation);
         thechosencolor = Color.green;
     }
 
@@ -22,6 +22,6 @@ public class spawnertest : MonoBehaviour
         Debug.DrawRay(transform.position, transform.up * 10, thechosencolor);
         Physics.Raycast(transform.position, transform.up, out testhit);
 
-        //if(testhit.)
+        //if (testhit.)
     }
 }
