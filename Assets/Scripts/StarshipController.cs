@@ -57,7 +57,7 @@ public class StarshipController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, lookAngle - 90f);
 
         //Fire
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) || Input.GetKeyDown("space"))
         {
             if (tocero <= 0)
             {
@@ -81,6 +81,6 @@ public class StarshipController : MonoBehaviour
     //Barra de Vida
     void OnCollisionEnter2D(Collision2D col)
     {
-        healthBar.GetComponent<HealthBar>().Damage(1f);
+        healthBar.GetComponent<HealthBar>().Damage(15f);
     }
 }

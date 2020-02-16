@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     Camera viewcamera;
     
     //Shift
+    float slowness;
     float movementSpeed;
 
     //Turn
@@ -47,7 +48,7 @@ public class EnemyController : MonoBehaviour
     void start()
     {
         //Collider
-        healthE = 100;
+        healthE = 1;
         changedone = false;
 
         //Cadencia
@@ -63,6 +64,11 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(healthE < 0)
+        {
+            Destroy(this);
+        }
+
         ////Rotation to look Player
         Target = GameObject.FindGameObjectWithTag("Player").transform;
         lookDirection = Target.position - transform.position;
@@ -90,8 +96,17 @@ public class EnemyController : MonoBehaviour
         //Movimiento
         if(!colActivated)
         {
-            transform.position = Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime);
-            Debug.DrawLine(transform.position, Target.position);
+            if (slowness <= 0)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
+                Debug.DrawLine(transform.position, Target.position);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime / slowness);
+                Debug.DrawLine(transform.position, Target.position);
+                slowness -= 1 * Time.deltaTime;
+            }
         }
 
         //Colliders
@@ -123,8 +138,9 @@ public class EnemyController : MonoBehaviour
             colActivated = true;
         }
 
-        if (col.gameObject.tag == "Player")
+        else
         {
+            slowness++;
             healthE--;
         }
     }

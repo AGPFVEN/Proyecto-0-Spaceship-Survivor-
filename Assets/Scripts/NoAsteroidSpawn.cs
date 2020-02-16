@@ -56,7 +56,6 @@ public class NoAsteroidSpawn : MonoBehaviour
         if (arriba.collider == false)
         {
             chocaar = Color.red;
-            print("choca");
         }
         else
         {
