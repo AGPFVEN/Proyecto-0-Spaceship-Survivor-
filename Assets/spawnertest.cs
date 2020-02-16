@@ -5,13 +5,22 @@ using UnityEngine;
 public class spawnertest : MonoBehaviour
 {
     public Transform place;
-    public GameObject object2spawn;
+    public GameObject object2spawno;
+    GameObject object2spawnm;
+
+    public SpawnerScript SpawnerScript;
     Color thechosencolor;
+    float Xscale;
+    float Yscale;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(object2spawn, place.position, transform.rotation);
+        object2spawnm = object2spawno;
+        SpawnerScript.RandomizeObstacle(object2spawnm);
+        
+
+        Instantiate(object2spawnm, place.position, transform.rotation);
         thechosencolor = Color.green;
     }
 
@@ -20,8 +29,17 @@ public class spawnertest : MonoBehaviour
     {
         RaycastHit testhit;
         Debug.DrawRay(transform.position, transform.up * 10, thechosencolor);
-        Physics.Raycast(transform.position, transform.up, out testhit);
+        Physics.Raycast(transform.position, transform.up, out testhit, 10f);
 
-        //if (testhit.)
+        //SpawnerScript.RandomizeObstacle();
+
+        if (testhit.collider == false)
+        {
+            thechosencolor = Color.red;
+        }
+        else
+        {
+            thechosencolor = Color.green;
+        }
     }
 }

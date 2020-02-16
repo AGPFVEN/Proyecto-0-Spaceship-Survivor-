@@ -67,13 +67,13 @@ public class SpawnerScript : MonoBehaviour
         oSpawnerNum = Random.Range(0, 4);
 
         //first spawn 
-        RandomizeObstacle();
+        RandomizeObstacle(actualC);
         Instantiate(actualC, oSpawner[0].transform.position, transform.rotation);
-        RandomizeObstacle();
+        RandomizeObstacle(actualC);
         Instantiate(actualC, oSpawner[1].transform.position, transform.rotation);
-        RandomizeObstacle();
+        RandomizeObstacle(actualC);
         Instantiate(actualC, oSpawner[2].transform.position, transform.rotation);
-        RandomizeObstacle();
+        RandomizeObstacle(actualC);
         Instantiate(actualC, oSpawner[3].transform.position, transform.rotation);
         Xscale = Random.Range(0, 5);
         Yscale = Random.Range(0, 5);
@@ -91,7 +91,7 @@ public class SpawnerScript : MonoBehaviour
         //enemy algorithm
         if (crono <= 0)
         {
-            RandomizeObstacle();
+            RandomizeObstacle(actualC);
             Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
             Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
             crono = 5;
@@ -106,11 +106,11 @@ public class SpawnerScript : MonoBehaviour
     }
 
     //Modifying obstacles
-    void RandomizeObstacle()
+    public void RandomizeObstacle(GameObject randomized)
     {
         Xscale = Random.Range(0, 5);
         Yscale = Random.Range(0, 5);
-        actualC.transform.localScale = new Vector2(Xscale, Yscale);
+        randomized.transform.localScale = new Vector2(Xscale, Yscale);
     }
 
     //Instantiate Obstacles
