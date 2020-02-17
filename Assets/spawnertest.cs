@@ -25,11 +25,11 @@ public class spawnertest : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RaycastHit testhit;
-        Debug.DrawRay(transform.position, transform.up * 10, thechosencolor);
         Physics.Raycast(transform.position, transform.up, out testhit, 10f);
+        Debug.DrawRay(transform.position, transform.up * 10, thechosencolor);
 
         //SpawnerScript.RandomizeObstacle();
 
