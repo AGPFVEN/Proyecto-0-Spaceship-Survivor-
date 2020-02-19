@@ -249,7 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   place: {fileID: 698355010}
-  object2spawn: {fileID: 687036553}
+  object2spawno: {fileID: 687036553}
+  SpawnerScript: {fileID: 0}
 --- !u!4 &449971246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6773535125038052163, guid: 4d215174c4a13f94b8ac19698a278f8a,

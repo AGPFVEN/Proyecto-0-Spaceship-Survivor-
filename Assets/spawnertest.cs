@@ -16,11 +16,11 @@ public class spawnertest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        object2spawnm = object2spawno;
-        SpawnerScript.RandomizeObstacle(object2spawnm);
-        
+        //object2spawno = object2spawnm;
+        //SpawnerScript.RandomizeObstacle(object2spawnm);
 
-        Instantiate(object2spawnm, place.position, transform.rotation);
+
+        Instantiate(object2spawno, place.position, transform.rotation);
         thechosencolor = Color.green;
     }
 
@@ -41,5 +41,9 @@ public class spawnertest : MonoBehaviour
         {
             thechosencolor = Color.green;
         }
+    }
+    void Createobstacles()
+    {
+        Instantiate(object2spawnm, place.position, Quaternion.Euler(0f, 0f, 0f));
     }
 }
