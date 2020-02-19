@@ -19,9 +19,7 @@ public class spawnertest : MonoBehaviour
         //object2spawno = object2spawnm;
         //SpawnerScript.RandomizeObstacle(object2spawnm);
 
-
         Instantiate(object2spawno, place.position, transform.rotation);
-        thechosencolor = Color.green;
     }
 
     // Update is called once per frame
