@@ -40,8 +40,12 @@ public class spawnertest : MonoBehaviour
             thechosencolor = Color.green;
         }
     }
-    void Createobstacles()
+    void Createobstacles(Transform place, GameObject original)
     {
-        Instantiate(object2spawnm, place.position, Quaternion.Euler(0f, 0f, 0f));
+        int xscale = Random.Range(1, 5);
+        int yscale = Random.Range(1, 5);
+
+        original.transform.localScale = new Vector2(xscale, yscale);
+        Instantiate(original, place, Quaternion.Euler(0f, 0f, 0f));
     }
 }
