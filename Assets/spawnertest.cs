@@ -6,46 +6,59 @@ public class spawnertest : MonoBehaviour
 {
     public Transform place;
     public GameObject object2spawno;
-    GameObject object2spawnm;
 
-    public SpawnerScript SpawnerScript;
     Color thechosencolor;
-    float Xscale;
-    float Yscale;
+
+    float crono;
 
     // Start is called before the first frame update
     void Start()
     {
-        //object2spawno = object2spawnm;
-        //SpawnerScript.RandomizeObstacle(object2spawnm);
+        Createobstacles(place, object2spawno);
 
-        Instantiate(object2spawno, place.position, transform.rotation);
+        //Starting crono
+        crono = 1;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //raycast collide
         RaycastHit testhit;
         Physics.Raycast(transform.position, transform.up, out testhit, 10f);
         Debug.DrawRay(transform.position, transform.up * 10, thechosencolor);
 
-        //SpawnerScript.RandomizeObstacle();
-
         if (testhit.collider == false)
         {
             thechosencolor = Color.red;
+            //crono
+            if (crono <= 0)
+            {
+                Createobstacles(place, object2spawno);
+                crono = 5;
+            }
         }
         else
         {
             thechosencolor = Color.green;
         }
+        if (crono >= 0)
+        {
+            crono -= 1 * Time.deltaTime;
+        }
+        print(crono);
     }
+
+    //Crear
     void Createobstacles(Transform place, GameObject original)
     {
         int xscale = Random.Range(1, 5);
         int yscale = Random.Range(1, 5);
 
-        original.transform.localScale = new Vector2(xscale, yscale);
-        Instantiate(original, place, Quaternion.Euler(0f, 0f, 0f));
+        GameObject copy = original;
+
+        copy.transform.localScale = new Vector2(xscale, yscale);
+        
+        Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
     }
 }
