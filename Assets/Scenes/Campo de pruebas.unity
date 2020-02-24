@@ -245,18 +245,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 313637209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e0a70966279f4446acb5e6091ac511f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0319456ef36af23488ef9e5717c9402e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   place: {fileID: 698355010}
   object2spawno: {fileID: 400324886}
-  object2spawn3d: {fileID: 0}
-  thechosencolor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  crono: 0
 --- !u!1 &400324886
 GameObject:
   m_ObjectHideFlags: 0
