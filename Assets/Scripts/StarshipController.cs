@@ -78,9 +78,9 @@ public class StarshipController : MonoBehaviour
         firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
     }
 
-    //Barra de Vida
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        healthBar.GetComponent<HealthBar>().Damage(15f);
-    }
+    //Barra de Vida desactivada
+    //void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    healthBar.GetComponent<HealthBar>().Damage(15f);
+    //}
 }

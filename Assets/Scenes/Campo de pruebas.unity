@@ -250,6 +250,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   place: {fileID: 698355010}
   object2spawno: {fileID: 400324886}
+  object2spawn3d: {fileID: 0}
+  thechosencolor:
+    r: 0
+    g: 0
+    b: 0
+    a: 0
+  crono: 0
 --- !u!1 &400324886
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +269,7 @@ GameObject:
   - component: {fileID: 400324889}
   - component: {fileID: 400324888}
   - component: {fileID: 400324887}
+  - component: {fileID: 400324891}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -372,13 +380,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400324886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 211.31, y: 20.71, z: 0}
+  m_LocalPosition: {x: 15.17, y: 10.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 687036557}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &400324891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400324886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5859ef9947152e845951620fa9fe31ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &449971246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6773535125038052163, guid: 4d215174c4a13f94b8ac19698a278f8a,
@@ -470,8 +490,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687036553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 211.31, y: 173.29001, z: 188.90234}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 19.46, y: 10.88955, z: 1}
   m_Children: []
   m_Father: {fileID: 400324890}
   m_RootOrder: 0
