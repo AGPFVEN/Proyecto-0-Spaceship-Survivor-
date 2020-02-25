@@ -14,9 +14,6 @@ public class NoAsteroidSpawnTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (col)
-        {
-            
-        }
+
     }
 }
