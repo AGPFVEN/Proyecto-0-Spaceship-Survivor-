@@ -11,9 +11,12 @@ public class spawnertest : MonoBehaviour
 
     float crono;
 
+    public bool ready2spawn;
+
     // Start is called before the first frame update
     void Start()
     {
+        ready2spawn = true;
         Createobstacles(place, object2spawno);
 
         //Starting crono
@@ -32,7 +35,7 @@ public class spawnertest : MonoBehaviour
         {
             thechosencolor = Color.red;
             //crono
-            if (crono <= 0)
+            if (crono <= 0 && ready2spawn == true)
             {
                 Createobstacles(place, object2spawno);
                 crono = 5;
@@ -60,5 +63,23 @@ public class spawnertest : MonoBehaviour
         copy.transform.localScale = new Vector2(xscale, yscale);
         
         Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
+    }
+
+    public bool Ready2spawn(bool condition)
+    {
+        if(condition == true)
+        {
+            return true;
+        }
+
+        if (condition == false)
+        {
+            return false;
+        }
+
+        else
+        {
+            return false;
+        }
     }
 }
