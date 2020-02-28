@@ -26,6 +26,9 @@ public class spawnertest : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //method
+        //ready2spawn = Ready2spawn;
+
         //raycast collide
         RaycastHit testhit;
         Physics.Raycast(transform.position, transform.up, out testhit, 10f);
