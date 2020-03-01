@@ -68,15 +68,15 @@ public class NoAsteroidSpawn : MonoBehaviour
 
 
         //funcion
-        //Doescollide(arriba, sichocaar, chocaar);
-        if (arriba.collider == false)
-        {
-            chocaar = Color.red;
-        }
-        else
-        {
-            chocaar = Color.green;
-        }
+        Doescollide(arriba, chocaar);
+        //if (arriba.collider == false)
+        //{
+        //    chocaar = Color.red;
+        //}
+        //else
+        //{
+        //    chocaar = Color.green;
+        //}
 
         //elrayazo(arriba, sichocaar);
         //elrayazo(abajo, sichocaab);
@@ -99,7 +99,7 @@ public class NoAsteroidSpawn : MonoBehaviour
 
     }
 
-    void Doescollide(RaycastHit voidhit, bool voidbool, Color voidcolor)
+    void Doescollide(RaycastHit voidhit, Color voidcolor)
     {
         if(voidhit.collider == false)
         {

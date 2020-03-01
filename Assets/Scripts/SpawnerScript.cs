@@ -23,15 +23,10 @@ public class SpawnerScript : MonoBehaviour
     public Transform spawnerUR;
 
     //Prefabs (obstacles)
-    public GameObject goSpawnerDL;
-    public GameObject goSpawnerDR;
-    public GameObject goSpawnerUL;
-    public GameObject goSpawnerUR;
     public Transform oSpawnerDL;
     public Transform oSpawnerDR;
     public Transform oSpawnerUL;
     public Transform oSpawnerUR;
-    public Transform oSpawnerU;
 
     //Prefabs to number
     Transform[] eSpawner;
@@ -59,7 +54,6 @@ public class SpawnerScript : MonoBehaviour
         oSpawner[1] = oSpawnerDR;
         oSpawner[2] = oSpawnerUL;
         oSpawner[3] = oSpawnerUR;
-        oSpawner[4] = oSpawnerU;
 
         //Prefab num (start)
         spawnerNum = Random.Range(0, 3);
