@@ -32,19 +32,19 @@ public class spawnertest : MonoBehaviour
         RaycastHit testhit, Down, Right, Left;
         //Arriba
         Physics.Raycast(transform.position, transform.up, out testhit, randomnumbers[0] / 6);
-        Debug.DrawRay(transform.position, transform.up * randomnumbers[0] / 2, thechosencolor);
+        Debug.DrawRay(transform.position, transform.up * randomnumbers[0], thechosencolor);
 
         //Abajo
-        Physics.Raycast(transform.position, -transform.up, out Down, randomnumbers[0] / 6);
-        Debug.DrawRay(transform.position, -transform.up * randomnumbers[0] / 2, thechosencolor);
+        Physics.Raycast(transform.position, -transform.up, out Down, randomnumbers[0]);
+        Debug.DrawRay(transform.position, -transform.up * randomnumbers[0], thechosencolor);
 
         //Derecha
-        Physics.Raycast(transform.position, transform.right, out Right, randomnumbers[1] / 6);
-        Debug.DrawRay(transform.position, transform.right * randomnumbers[1] / 2, thechosencolor);
+        Physics.Raycast(transform.position, transform.right, out Right, randomnumbers[1]);
+        Debug.DrawRay(transform.position, transform.right * randomnumbers[1], thechosencolor);
 
         //Izquierda
-        Physics.Raycast(transform.position, -transform.right, out Left, randomnumbers[1] / 6);
-        Debug.DrawRay(transform.position, -transform.right * randomnumbers[1] / 2, thechosencolor);
+        Physics.Raycast(transform.position, -transform.right, out Left, randomnumbers[1]);
+        Debug.DrawRay(transform.position, -transform.right * randomnumbers[1], thechosencolor);
 
         if (testhit.collider == false && Down.collider == false && Right.collider == false && Left.collider == false )
         {
@@ -52,6 +52,7 @@ public class spawnertest : MonoBehaviour
             //crono
             if (crono <= 0)
             {
+                randomnumbers = new float[2];
                 randomnumber(randomnumbers);
                 Createobstacles(place, object2spawno, randomnumbers);
                 crono = 5;
@@ -65,14 +66,24 @@ public class spawnertest : MonoBehaviour
         {
             crono -= 1 * Time.deltaTime;
         }
-        print(randomnumbers[0]);
+        print(/*randomnumbers[0]*/ crono);
     }
 
     void randomnumber(float[] randomizednumbers)
     {
         randomizednumbers = new float[2]; 
-        randomizednumbers[0] = Random.Range(2, 5);
-        randomizednumbers[1] = Random.Range(2, 5);
+        randomizednumbers[0] = 1 + Random.Range(2, 5);
+        randomizednumbers[1] = 1 + Random.Range(2, 5);
+
+        if(randomnumbers[0] == 0)
+        {
+            randomnumbers[0] = 1 + Random.Range(2, 5);
+        }
+
+        if (randomnumbers[1] == 0)
+        {
+            randomnumbers[1] = 1 + Random.Range(2, 5);
+        }
     }
 
     //Crear

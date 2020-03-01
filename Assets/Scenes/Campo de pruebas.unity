@@ -250,7 +250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   place: {fileID: 698355010}
   object2spawno: {fileID: 400324886}
-  ready2spawn: 0
 --- !u!1 &400324886
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +263,7 @@ GameObject:
   - component: {fileID: 400324888}
   - component: {fileID: 400324887}
   - component: {fileID: 400324891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +374,7 @@ Transform:
   m_GameObject: {fileID: 400324886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 121.4, y: -41.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.39, z: 1}
   m_Children:
   - {fileID: 687036557}
   m_Father: {fileID: 0}
@@ -411,7 +410,7 @@ GameObject:
   - component: {fileID: 687036556}
   - component: {fileID: 687036555}
   - component: {fileID: 687036554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
