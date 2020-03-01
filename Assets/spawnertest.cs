@@ -11,13 +11,15 @@ public class spawnertest : MonoBehaviour
 
     float crono;
 
-    public bool ready2spawn;
+    //modificar raycast
+    float[] randomnumbers;
 
     // Start is called before the first frame update
     void Start()
     {
-        ready2spawn = true;
         Createobstacles(place, object2spawno);
+        randomnumbers = new float[2];
+        randomnumber(randomnumbers);
 
         //Starting crono
         crono = 1;
@@ -29,20 +31,20 @@ public class spawnertest : MonoBehaviour
         //raycast collide
         RaycastHit testhit, Down, Right, Left;
         //Arriba
-        Physics.Raycast(transform.position, transform.up, out testhit, 10f);
-        Debug.DrawRay(transform.position, transform.up * 10, thechosencolor);
+        Physics.Raycast(transform.position, transform.up, out testhit, randomnumbers[0] / 6);
+        Debug.DrawRay(transform.position, transform.up * randomnumbers[0] / 2, thechosencolor);
 
         //Abajo
-        Physics.Raycast(transform.position, -transform.up, out Down, 10f);
-        Debug.DrawRay(transform.position, -transform.up * 10, thechosencolor);
+        Physics.Raycast(transform.position, -transform.up, out Down, randomnumbers[0] / 6);
+        Debug.DrawRay(transform.position, -transform.up * randomnumbers[0] / 2, thechosencolor);
 
         //Derecha
-        Physics.Raycast(transform.position, transform.right, out Right, 10f);
-        Debug.DrawRay(transform.position, transform.right * 10, thechosencolor);
+        Physics.Raycast(transform.position, transform.right, out Right, randomnumbers[1] / 6);
+        Debug.DrawRay(transform.position, transform.right * randomnumbers[1] / 2, thechosencolor);
 
         //Izquierda
-        Physics.Raycast(transform.position, -transform.right, out Left, 10f);
-        Debug.DrawRay(transform.position, -transform.right * 10, thechosencolor);
+        Physics.Raycast(transform.position, -transform.right, out Left, randomnumbers[1] / 6);
+        Debug.DrawRay(transform.position, -transform.right * randomnumbers[1] / 2, thechosencolor);
 
         if (testhit.collider == false && Down.collider == false && Right.collider == false && Left.collider == false )
         {
@@ -50,8 +52,8 @@ public class spawnertest : MonoBehaviour
             //crono
             if (crono <= 0)
             {
-                randomnumber();
-                Createobstacles(place, object2spawno, randomnumber);
+                randomnumber(randomnumbers);
+                Createobstacles(place, object2spawno, randomnumbers);
                 crono = 5;
             }
         }
@@ -63,30 +65,24 @@ public class spawnertest : MonoBehaviour
         {
             crono -= 1 * Time.deltaTime;
         }
-        print(crono);
+        print(randomnumbers[0]);
     }
 
-    int[] randomnumber()
+    void randomnumber(float[] randomizednumbers)
     {
-        int[] randomizednumbers;
-        randomizednumbers = new int[1];
-        randomizednumbers[0] = Random.Range(1, 5);
-        randomizednumbers[0] = Random.Range(1, 5);
-
-        return randomizednumbers;
+        randomizednumbers = new float[2]; 
+        randomizednumbers[0] = Random.Range(2, 5);
+        randomizednumbers[1] = Random.Range(2, 5);
     }
 
     //Crear
-    void Createobstacles(Transform place, GameObject original, int[] numers2scale)
+    void Createobstacles(Transform place, GameObject original, float[] numers2scale)
     {
-        //int xscale = Random.Range(1, 5);
-        //int yscale = Random.Range(1, 5);
-
         GameObject copy = original;
 
-        copy.transform.localScale = new Vector2(numers2scale[0], numers2scale[1]);
-        
-        //Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
+        copy.transform.localScale = new Vector2(numers2scale[0]/2, numers2scale[1]/2);
+
+        Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
     }
     void Createobstacles(Transform place, GameObject original)
     {
@@ -97,7 +93,7 @@ public class spawnertest : MonoBehaviour
 
         copy.transform.localScale = new Vector2(xscale, yscale);
 
-        //Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
+        Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
     }
 
     //public bool Ready2spawn(bool condition)
