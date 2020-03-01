@@ -16,4 +16,9 @@ public class NoAsteroidSpawnTest : MonoBehaviour
     { 
 
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        
+    }
 }

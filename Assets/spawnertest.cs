@@ -38,7 +38,7 @@ public class spawnertest : MonoBehaviour
         {
             thechosencolor = Color.red;
             //crono
-            if (crono <= 0 && ready2spawn == true)
+            if (crono <= 0 && ready2spawn == false)
             {
                 Createobstacles(place, object2spawno);
                 crono = 5;
@@ -68,21 +68,21 @@ public class spawnertest : MonoBehaviour
         Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
     }
 
-    public bool Ready2spawn(bool condition)
-    {
-        if(condition == true)
-        {
-            return true;
-        }
+    //public bool Ready2spawn(bool condition)
+    //{
+    //    if(condition == true)
+    //    {
+    //        return true;
+    //    }
 
-        if (condition == false)
-        {
-            return false;
-        }
+    //    if (condition == false)
+    //    {
+    //        return false;
+    //    }
 
-        else
-        {
-            return false;
-        }
-    }
+    //    else
+    //    {
+    //        return true;
+    //    }
+    //}
 }
