@@ -66,7 +66,6 @@ public class spawnertest : MonoBehaviour
         {
             crono -= 1 * Time.deltaTime;
         }
-        print(/*randomnumbers[0]*/ crono);
     }
 
     void randomnumber(float[] randomizednumbers)
