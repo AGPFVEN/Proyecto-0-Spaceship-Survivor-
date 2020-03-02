@@ -105,22 +105,4 @@ public class spawnertest : MonoBehaviour
 
         Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
     }
-
-    //public bool Ready2spawn(bool condition)
-    //{
-    //    if(condition == true)
-    //    {
-    //        return true;
-    //    }
-
-    //    if (condition == false)
-    //    {
-    //        return false;
-    //    }
-
-    //    else
-    //    {
-    //        return true;
-    //    }
-    //}
 }

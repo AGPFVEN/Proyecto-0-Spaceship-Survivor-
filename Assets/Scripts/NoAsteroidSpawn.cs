@@ -13,9 +13,13 @@ public class NoAsteroidSpawn : MonoBehaviour
     Color chocaabde;
     Color chocaabiz;
 
+    //modificar raycast
+    float[] randomnumbers;
+
     private void Start()
     {
-
+        randomnumbers = new float[2];
+        randomnumber(randomnumbers);
     }
     private void FixedUpdate()
     {
@@ -69,5 +73,42 @@ public class NoAsteroidSpawn : MonoBehaviour
         {
             voidcolor = Color.red;
         }
+    }
+    void randomnumber(float[] randomizednumbers)
+    {
+        randomizednumbers = new float[2];
+        randomizednumbers[0] = 1 + Random.Range(2, 5);
+        randomizednumbers[1] = 1 + Random.Range(2, 5);
+
+        if (randomnumbers[0] == 0)
+        {
+            randomnumbers[0] = 1 + Random.Range(2, 5);
+        }
+
+        if (randomnumbers[1] == 0)
+        {
+            randomnumbers[1] = 1 + Random.Range(2, 5);
+        }
+    }
+
+    //Crear
+    void Createobstacles(Transform place, GameObject original, float[] numers2scale)
+    {
+        GameObject copy = original;
+
+        copy.transform.localScale = new Vector2(numers2scale[0] / 2, numers2scale[1] / 2);
+
+        Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
+    }
+    void Createobstacles(Transform place, GameObject original)
+    {
+        int xscale = Random.Range(1, 5);
+        int yscale = Random.Range(1, 5);
+
+        GameObject copy = original;
+
+        copy.transform.localScale = new Vector2(xscale, yscale);
+
+        Instantiate(original, place.transform.position, Quaternion.Euler(0f, 0f, 0f));
     }
 }
