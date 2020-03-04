@@ -89,8 +89,6 @@ public class SpawnerScript : MonoBehaviour
         Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
         spawnerNum = Random.Range(0, 3);
         oSpawnerNum = Random.Range(0, 3);
-
-        // //Modifying prefab (start)
     }
 
     void FixedUpdate()
@@ -159,5 +157,17 @@ public class SpawnerScript : MonoBehaviour
     {
         Instantiate(normalE, eSpawner[spawnerNum].position, Quaternion.Euler(0f, 0f, 0f));
         Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
+    }
+    
+    public void HelpColor(Color tcolor, RaycastHit traycast, int tint)
+    {
+        if(traycast.collider)
+        {
+            tcolor = Color.blue;
+        }
+        if (traycast.collider == false)
+        {
+            tcolor = Color.red;
+        }
     }
 }
