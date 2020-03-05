@@ -159,7 +159,7 @@ public class SpawnerScript : MonoBehaviour
         Instantiate(actualC, oSpawner[oSpawnerNum].position, transform.rotation);
     }
     
-    public void HelpColor(Color tcolor, RaycastHit traycast, int tint)
+    public void HelpColor(Color tcolor, RaycastHit traycast)
     {
         if(traycast.collider)
         {
