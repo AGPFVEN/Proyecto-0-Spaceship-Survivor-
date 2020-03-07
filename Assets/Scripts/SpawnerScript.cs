@@ -98,34 +98,43 @@ public class SpawnerScript : MonoBehaviour
         //Arriba
         Physics.Raycast(transform.position, transform.up, out arriba, 10);
         Debug.DrawRay(transform.position, transform.up * 10, chocaar);
+        HelpColor(chocaar, arriba);
 
         //Abajo
         Physics.Raycast(transform.position, -transform.up, out abajo, 10);
         Debug.DrawRay(transform.position, -transform.up * 10, chocaab);
+        HelpColor(chocaab, abajo);
 
         //Derecha
         Physics.Raycast(transform.position, transform.right, out derecha, 10);
         Debug.DrawRay(transform.position, transform.right * 10, chocade);
+        HelpColor(chocade, derecha);
 
         //Izquierda
         Physics.Raycast(transform.position, -transform.right, out izquierda, 10);
         Debug.DrawRay(transform.position, -transform.right * 10, chocaiz);
+        HelpColor(chocaiz, izquierda);
+
 
         //ArribaDerecha
         Physics.Raycast(transform.position, (transform.up - transform.right), out arribade, 10);
         Debug.DrawRay(transform.position, (transform.up - transform.right) * 10, chocaarde);
+        HelpColor(chocaarde, arribade);
 
         //ArribaIzquierda
         Physics.Raycast(transform.position, (transform.up + transform.right), out arribaizq, 10);
         Debug.DrawRay(transform.position, (transform.up + transform.right) * 10, chocaariz);
+        HelpColor(chocaariz, arribaizq);
 
         //AbajoDerecha
         Physics.Raycast(transform.position, (-transform.up - transform.right), out abajode, 10);
         Debug.DrawRay(transform.position, (-transform.up - transform.right) * 10, chocaabde);
+        HelpColor(chocaabde, abajode);
 
         //AbajoIzquierda
         Physics.Raycast(transform.position, (-transform.up + transform.right), out abajoizq, 10);
         Debug.DrawRay(transform.position, (-transform.up + transform.right) * 10, chocaabiz);
+        HelpColor(chocaabiz, abajoizq);
 
         //enemy algorithm
         if (crono <= 0)

@@ -96,7 +96,6 @@ public class EnemyController : MonoBehaviour
         if(!colActivated)
         {
             transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
-            Debug.DrawLine(transform.position, Target.position);
         }
 
         //Colliders
