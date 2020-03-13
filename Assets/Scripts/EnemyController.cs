@@ -82,21 +82,19 @@ public class EnemyController : MonoBehaviour
             {
                 if (crono >= cronoL)
                 {
-                    if (colActivated == false)
-                    {
+                
                         FireBullet();
                         crono = 0;
-                    }
+                    
                 }
                 crono += 1 * Time.deltaTime;
             }
         }
 
         //Movimiento
-        if(!colActivated)
-        {
+ 
             transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
-        }
+        
 
         //Colliders
 
