@@ -26,16 +26,16 @@ public class LimitOfWall : MonoBehaviour
         Color chocaab = Color.red;
         Color chocade = Color.red;
         Color chocaiz = Color.red;
-        Color chocaarde = Color.red;
-        Color chocaariz = Color.red;
-        Color chocaabde = Color.red;
-        Color chocaabiz = Color.red;
+        //Color chocaarde = Color.red;
+        //Color chocaariz = Color.red;
+        //Color chocaabde = Color.red;
+        //Color chocaabiz = Color.red;
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit arriba, abajo, derecha, izquierda, arribade, arribaizq, abajode, abajoizq;
+        RaycastHit arriba, abajo, derecha, izquierda/*, arribade, arribaizq, abajode, abajoizq*/;
 
         //Arriba
         Physics.Raycast(transform.position, transform.up, out arriba, 10);
@@ -43,30 +43,30 @@ public class LimitOfWall : MonoBehaviour
 
         //Abajo
         Physics.Raycast(transform.position, -transform.up, out abajo, 10);
-        Debug.DrawRay(transform.position, -transform.up * vertical, chocaab);
+        Debug.DrawRay(transform.position, -transform.up * (vertical * transform.localScale.y), chocaab);
 
         //Derecha
         Physics.Raycast(transform.position, transform.right, out derecha, 10);
-        Debug.DrawRay(transform.position, transform.right * horizontal, chocade);
+        Debug.DrawRay(transform.position, transform.right * (horizontal * transform.localScale.x), chocade);
 
         //Izquierda
         Physics.Raycast(transform.position, -transform.right, out izquierda, 10);
-        Debug.DrawRay(transform.position, -transform.right * horizontal, chocaiz);
+        Debug.DrawRay(transform.position, -transform.right * (horizontal * transform.localScale.x), chocaiz);
 
-        //ArribaDerecha
-        Physics.Raycast(transform.position, (transform.up - transform.right), out arribade, 10);
-        Debug.DrawRay(transform.position, (transform.up - transform.right) * diagonal, chocaarde);
+        ////ArribaDerecha
+        //Physics.Raycast(transform.position, (transform.up - transform.right), out arribade, 10);
+        //Debug.DrawRay(transform.position, (transform.up - transform.right) * diagonal, chocaarde);
 
-        //ArribaIzquierda
-        Physics.Raycast(transform.position, (transform.up + transform.right), out arribaizq, 10);
-        Debug.DrawRay(transform.position, (transform.up + transform.right) * diagonal, chocaariz);
+        ////ArribaIzquierda
+        //Physics.Raycast(transform.position, (transform.up + transform.right), out arribaizq, 10);
+        //Debug.DrawRay(transform.position, (transform.up + transform.right) * diagonal, chocaariz);
 
-        //AbajoDerecha
-        Physics.Raycast(transform.position, (-transform.up - transform.right), out abajode, 10);
-        Debug.DrawRay(transform.position, (-transform.up - transform.right) * diagonal, chocaabde);
+        ////AbajoDerecha
+        //Physics.Raycast(transform.position, (-transform.up - transform.right), out abajode, 10);
+        //Debug.DrawRay(transform.position, (-transform.up - transform.right) * diagonal, chocaabde);
 
-        //AbajoIzquierda
-        Physics.Raycast(transform.position, (-transform.up + transform.right), out abajoizq, 10);
-        Debug.DrawRay(transform.position, (-transform.up + transform.right) * diagonal, chocaabiz);
+        ////AbajoIzquierda
+        //Physics.Raycast(transform.position, (-transform.up + transform.right), out abajoizq, 10);
+        //Debug.DrawRay(transform.position, (-transform.up + transform.right) * diagonal, chocaabiz);
     }
 }

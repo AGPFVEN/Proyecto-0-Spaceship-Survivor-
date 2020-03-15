@@ -78,8 +78,8 @@ public class StarshipController : MonoBehaviour
     }
 
     //Barra de Vida desactivada
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        healthBar.GetComponent<HealthBar>().Damage(15f);
-    }
+    //void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    healthBar.GetComponent<HealthBar>().Damage(15f);
+    //}
 }
