@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //wall walking
+    Color disparo;
+
     //bool colActivated;
     bool changedone;
 
@@ -82,7 +84,7 @@ public class EnemyController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
         }
 
-        /////////
+        //Disparo
         if (distanceEP <= customdistanceEP)
         {
             if (crono != cronoL)
@@ -97,24 +99,23 @@ public class EnemyController : MonoBehaviour
                 crono += 1 * Time.deltaTime;
             }
         }
-        //Colliders
 
+        //Raycast
         RaycastHit enemyhit;
 
-            if (changedone == false)
-            {
-                transform.position += new Vector3(0, 0, 10);
-                changedone = true;
-            }
+        if (changedone == false)
+        {
+            transform.position += new Vector3(0, 0, 10);
+            changedone = true;
+        }
 
-            //transform.position = Vector2.MoveTowards(transform.position + new Vector3(0, 0, 10), Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
+        Physics.Raycast(transform.position, transform.forward, out enemyhit);
 
-            Physics.Raycast(transform.position, transform.forward, out enemyhit);
-            Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime) , Color.red);
-            transform.position = Vector3.MoveTowards(transform.position, Target.position + new Vector3(0, 0, 10), 1 * Time.deltaTime);
-
-
-            //Debug.DrawLine(transform.position, Target.position + new Vector3(0, 0, 10));
+        //if (enemyhit.)
+        //{
+        //    disparo = Color.black;
+        //}
+        //Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime) , disparo);
     }
 
     public void OnCollisionEnter2D(Collision2D col)
@@ -134,9 +135,8 @@ public class EnemyController : MonoBehaviour
     //}
     void FiredBullet(GameObject bullet)
     {
-        GameObject firedBullet = bullet;
-        Instantiate(bullet, Barrel.position, transform.rotation);
-        //firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
+        GameObject firedbullet =Instantiate(bullet, Barrel.position, transform.rotation);
+        firedbullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
 
     }
 }
