@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //wall walking
-    bool colActivated;
+    //bool colActivated;
     bool changedone;
 
     //fire
@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     Camera viewcamera;
     
     //Shift
-    float movementSpeed;
+    //float movementSpeed;
 
     //Turn
     float lookAngle;
@@ -41,8 +41,6 @@ public class EnemyController : MonoBehaviour
         }
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
-    public LayerMask targetMask;
-    public LayerMask obstacleMask;
 
     void start()
     {
@@ -57,7 +55,7 @@ public class EnemyController : MonoBehaviour
 
         //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
-        movementSpeed = 0;
+        //movementSpeed = 0;
         Target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -76,31 +74,33 @@ public class EnemyController : MonoBehaviour
 
         ////Player detection
         distanceEP = Vector2.Distance(transform.position, Target.position - transform.position);
+
+        //Movimiento
+
+        if (distanceEP > customdistanceEP)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
+        }
+
+        /////////
         if (distanceEP <= customdistanceEP)
         {
             if (crono != cronoL)
             {
                 if (crono >= cronoL)
                 {
-                
-                        FireBullet();
-                        crono = 0;
-                    
+
+                    FiredBullet(Bullet);
+                    crono = 0;
+
                 }
                 crono += 1 * Time.deltaTime;
             }
         }
-
-        //Movimiento
- 
-            transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
-        
-
         //Colliders
 
         RaycastHit enemyhit;
-        if (colActivated == true)
-        {
+
             if (changedone == false)
             {
                 transform.position += new Vector3(0, 0, 10);
@@ -115,32 +115,28 @@ public class EnemyController : MonoBehaviour
 
 
             //Debug.DrawLine(transform.position, Target.position + new Vector3(0, 0, 10));
-        }
     }
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Wall")
-        {
-            colActivated = true;
-        }
-
         {
             healthE--;
         }
     }
 
-    void FindVisibleTargets()
+    //void FindVisibleTargets()
+    //{
+    //    Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+    //    for (int i = 0; i < targetsInViewRadius.Length; i++)
+    //    {
+    //        Transform target = targetsInViewRadius [i].transform;
+    //    }
+    //}
+    void FiredBullet(GameObject bullet)
     {
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-        for (int i = 0; i < targetsInViewRadius.Length; i++)
-        {
-            Transform target = targetsInViewRadius [i].transform;
-        }
-    }
-    public void FireBullet()
-    {
-        GameObject firedBullet = Instantiate(Bullet, Barrel.position, transform.rotation);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
+        GameObject firedBullet = bullet;
+        Instantiate(bullet, Barrel.position, transform.rotation);
+        //firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
+
     }
 }

@@ -6,7 +6,7 @@ public class TesterMove : MonoBehaviour
 //Enemys 
 {
     //Spawn?
-    bool spawnnow;
+    //bool spawnnow;
 
     //Enemys 
     public GameObject normalE;
@@ -48,7 +48,7 @@ public class TesterMove : MonoBehaviour
     void Start()
     {
         //Spawn now?
-        spawnnow = true;
+        //spawnnow = true;
 
         //Crono (start)
         crono = 1;
