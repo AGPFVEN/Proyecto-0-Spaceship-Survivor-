@@ -59,6 +59,9 @@ public class EnemyController : MonoBehaviour
         viewcamera = Camera.main;
         //movementSpeed = 0;
         Target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        //raycast color 
+        disparo = Color.cyan;
     }
 
     void FixedUpdate()
@@ -111,11 +114,15 @@ public class EnemyController : MonoBehaviour
 
         Physics.Raycast(transform.position, transform.forward, out enemyhit);
 
-        //if (enemyhit.)
+        //if (enemyhit.collider.gameObject.CompareTag("Player"))
         //{
         //    disparo = Color.black;
         //}
-        //Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime) , disparo);
+        //else
+        //{
+        //    disparo = Color.cyan;
+        //}
+        //Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime), disparo);
     }
 
     public void OnCollisionEnter2D(Collision2D col)
