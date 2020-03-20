@@ -19,6 +19,14 @@ public class LimitOfWall : MonoBehaviour
     float horizontal;
     public float diagonal;
 
+    //Distancias para el raycast
+    float rvertical;
+    float rhorizontal;
+
+    //Vectores Super Useful
+    Vector3 ab;
+    Vector3 di;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,42 +34,43 @@ public class LimitOfWall : MonoBehaviour
         Color chocaab = Color.red;
         Color chocade = Color.red;
         Color chocaiz = Color.red;
-        //Color chocaarde = Color.red;
-        //Color chocaariz = Color.red;
-        //Color chocaabde = Color.red;
-        //Color chocaabiz = Color.red;
+        Color chocaarde = Color.red;
+        Color chocaariz = Color.red;
+        Color chocaabde = Color.red;
+        Color chocaabiz = Color.red;
 
-        //Variables to multiply with scale
-        vertical = 5.4f;
-        horizontal = 9.6f;
+        //Vectores Useful
+        ab = transform.up * transform.localScale.y * 5.4f;
+        di = transform.right * transform.localScale.x * 9.6f;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////Raycast
 
         RaycastHit arriba, abajo, derecha, izquierda, arribade, arribaizq, abajode, abajoizq;
 
         //Arriba
         Physics.Raycast(transform.position, transform.up, out arriba, 10);
-        Debug.DrawRay(transform.position, transform.up * (vertical * transform.localScale.y), chocaar);
+        Debug.DrawRay(transform.position, ab, chocaar);
 
         //Abajo
         Physics.Raycast(transform.position, -transform.up, out abajo, 10);
-        Debug.DrawRay(transform.position, -transform.up * (vertical * transform.localScale.y), chocaab);
+        Debug.DrawRay(transform.position, -ab, chocaab);
 
         //Derecha
         Physics.Raycast(transform.position, transform.right, out derecha, 10);
-        Debug.DrawRay(transform.position, transform.right * (horizontal * transform.localScale.x), chocade);
+        Debug.DrawRay(transform.position, di, chocade);
 
         //Izquierda
         Physics.Raycast(transform.position, -transform.right, out izquierda, 10);
-        Debug.DrawRay(transform.position, -transform.right * (horizontal * transform.localScale.x), chocaiz);
+        Debug.DrawRay(transform.position, -di, chocaiz);
 
         //ArribaDerecha
         Physics.Raycast(transform.position, (transform.up - transform.right), out arribade, 10);
-        Debug.DrawRay(transform.position, (transform.up - transform.right) * (horizontal * (transform.localScale.y - transform.localScale.x)), chocaarde);
+        Debug.DrawRay(transform.position, (ab + di) * 4, chocaarde);
 
         //ArribaIzquierda
         Physics.Raycast(transform.position, (transform.up + transform.right), out arribaizq, 10);
