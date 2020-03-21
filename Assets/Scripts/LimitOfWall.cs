@@ -14,18 +14,14 @@ public class LimitOfWall : MonoBehaviour
     Color chocaabde;
     Color chocaabiz;
 
-    //Distancias
-    float vertical;
-    float horizontal;
-    public float diagonal;
-
-    //Distancias para el raycast
-    float rvertical;
-    float rhorizontal;
-
     //Vectores Super Useful
     Vector3 ab;
     Vector3 di;
+
+    //Variables for the raycasts module
+    float xmodule;
+    float ymodule;
+    float xymodule;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +35,11 @@ public class LimitOfWall : MonoBehaviour
         Color chocaabde = Color.red;
         Color chocaabiz = Color.red;
 
+        //Variables for the raycasts module (start)
+        //xmodule = 5.4f;
+        //ymodule = 9.6f;
+        //xymodule = ;
+
         //Vectores Useful
         ab = transform.up * transform.localScale.y * 5.4f;
         di = transform.right * transform.localScale.x * 9.6f;
@@ -47,41 +48,54 @@ public class LimitOfWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////Raycast
 
         RaycastHit arriba, abajo, derecha, izquierda, arribade, arribaizq, abajode, abajoizq;
 
         //Arriba
-        Physics.Raycast(transform.position, ab, out arriba);
-        Debug.DrawRay(transform.position, ab* 2, chocaar);
+        Physics.Raycast(transform.position, ab, out arriba, ab.magnitude);
+        Debug.DrawRay(transform.position, ab, Doesthecolorcollide(chocaar, arriba));
 
         //Abajo
-        Physics.Raycast(transform.position, -ab, out abajo);
-        Debug.DrawRay(transform.position, -ab, chocaab);
+        Physics.Raycast(transform.position, -ab, out abajo, ab.magnitude);
+        Debug.DrawRay(transform.position, -ab, Doesthecolorcollide(chocaab, abajo));
 
         //Derecha
-        Physics.Raycast(transform.position, di, out derecha);
-        Debug.DrawRay(transform.position, di, chocade);
+        Physics.Raycast(transform.position, di, out derecha, di.magnitude);
+        Debug.DrawRay(transform.position, di, Doesthecolorcollide(chocade, derecha));
 
         //Izquierda
-        Physics.Raycast(transform.position, -di, out izquierda);
-        Debug.DrawRay(transform.position, -di, chocaiz);
+        Physics.Raycast(transform.position, -di, out izquierda, di.magnitude);
+        Debug.DrawRay(transform.position, -di, Doesthecolorcollide(chocaiz, izquierda));
 
         //ArribaDerecha
-        Physics.Raycast(transform.position, (ab + di), out arribade);
-        Debug.DrawRay(transform.position, (ab + di), chocaarde);
+        Physics.Raycast(transform.position, (ab + di), out arribade, (ab + di).magnitude);
+        Debug.DrawRay(transform.position, (ab + di), Doesthecolorcollide(chocaarde, arribade));
 
         //ArribaIzquierda
-        Physics.Raycast(transform.position, (ab - di), out arribaizq, 10);
-        Debug.DrawRay(transform.position, (ab - di), chocaariz);
+        Physics.Raycast(transform.position, (ab - di), out arribaizq, (ab - di).magnitude);
+        Debug.DrawRay(transform.position, (ab - di), Doesthecolorcollide(chocaariz, arribaizq));
 
         //AbajoDerecha
-        Physics.Raycast(transform.position, (-ab + di), out abajode, 10);
-        Debug.DrawRay(transform.position, (-ab +di), chocaabde);
+        Physics.Raycast(transform.position, (-ab + di), out abajode, (-ab + di).magnitude);
+        Debug.DrawRay(transform.position, (-ab +di), Doesthecolorcollide(chocaabde, abajode));
 
         //AbajoIzquierda
-        Physics.Raycast(transform.position, -(ab + di), out abajoizq, 10);
-        Debug.DrawRay(transform.position,  -(ab + di), chocaabiz);
+        Physics.Raycast(transform.position, -(ab + di), out abajoizq, (ab + di).magnitude);
+        Debug.DrawRay(transform.position,  -(ab + di), Doesthecolorcollide(chocaabiz, abajoizq));
+    }
+
+    static Color Doesthecolorcollide(Color acolor, RaycastHit aray)
+    {
+        if(aray.collider == true)
+        {
+            acolor = Color.green;
+        }
+        else
+        {
+            acolor = Color.red;
+        }
+        return acolor;
     }
 }

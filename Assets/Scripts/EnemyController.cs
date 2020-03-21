@@ -122,7 +122,7 @@ public class EnemyController : MonoBehaviour
         //{
         //    disparo = Color.cyan;
         //}
-        //Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime), disparo);
+        //Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime));
     }
 
     public void OnCollisionEnter2D(Collision2D col)
