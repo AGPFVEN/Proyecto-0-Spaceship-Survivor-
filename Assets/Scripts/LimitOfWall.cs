@@ -84,6 +84,12 @@ public class LimitOfWall : MonoBehaviour
         //AbajoIzquierda
         Physics.Raycast(transform.position, -(ab + di), out abajoizq, (ab + di).magnitude);
         Debug.DrawRay(transform.position,  -(ab + di), Doesthecolorcollide(chocaabiz, abajoizq));
+
+        //Delete if it is surrounded
+        if (arriba.collider && abajo.collider && derecha.collider && izquierda.collider && arribade.collider && arribaizq.collider && abajode.collider && abajoizq.collider)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     static Color Doesthecolorcollide(Color acolor, RaycastHit aray)
