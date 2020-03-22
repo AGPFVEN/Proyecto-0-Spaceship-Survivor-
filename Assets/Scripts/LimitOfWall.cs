@@ -35,11 +35,6 @@ public class LimitOfWall : MonoBehaviour
         Color chocaabde = Color.red;
         Color chocaabiz = Color.red;
 
-        //Variables for the raycasts module (start)
-        //xmodule = 5.4f;
-        //ymodule = 9.6f;
-        //xymodule = ;
-
         //Vectores Useful
         ab = transform.up * transform.localScale.y * 5.4f;
         di = transform.right * transform.localScale.x * 9.6f;
@@ -88,13 +83,13 @@ public class LimitOfWall : MonoBehaviour
         //Delete if it is surrounded
         if (arriba.collider && abajo.collider && derecha.collider && izquierda.collider && arribade.collider && arribaizq.collider && abajode.collider && abajoizq.collider)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
     static Color Doesthecolorcollide(Color acolor, RaycastHit aray)
     {
-        if(aray.collider == true)
+        if(aray.collider)
         {
             acolor = Color.green;
         }
