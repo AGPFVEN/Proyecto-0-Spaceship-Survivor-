@@ -68,6 +68,9 @@ public class StarshipController : MonoBehaviour
         {
             tocero -= 1 * Time.deltaTime;
         }
+
+        //Ability
+
     }
 
     //Disparo(función)
