@@ -70,6 +70,16 @@ public class StarshipController : MonoBehaviour
         }
 
         //Ability
+        //Prueba
+        if(Physics2D.Raycast(transform.position, transform.forward).collider.CompareTag("Wall"))
+        {
+            Debug.DrawRay(transform.position, transform.forward, Color.yellow);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, transform.forward, Color.green);
+        }
+        
 
     }
 
