@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //wall walking
+    public LayerMask wallMask;
+    bool walled = true;
+    public float wallDistance = 10f;
     Color disparo;
 
     //bool colActivated;
@@ -21,7 +24,7 @@ public class EnemyController : MonoBehaviour
 
     //Rigidbody2D rigidbody;
     Camera viewcamera;
-    
+
     //Shift
     //float movementSpeed;
 
@@ -35,9 +38,10 @@ public class EnemyController : MonoBehaviour
     public float viewAngle;
     public float distanceEP;
     public float customdistanceEP;
-    public Vector3 DirFromAngle(float  angleInDegrees, bool angleIsGlobal)
+    Vector3 rayVector;
+    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
-        if(!angleIsGlobal)
+        if (!angleIsGlobal)
         {
             angleInDegrees += transform.eulerAngles.y;
         }
@@ -51,12 +55,11 @@ public class EnemyController : MonoBehaviour
         changedone = false;
 
         //Cadencia
-        customdistanceEP = 100;
+        customdistanceEP = 20;
         crono = 0;
         cronoL = 2;
-
-        //rigidbody = GetComponent<Rigidbody2D> ();
         viewcamera = Camera.main;
+
         //movementSpeed = 0;
         Target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -66,9 +69,9 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(healthE < 0)
+        if (healthE < 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         ////Rotation to look Player
@@ -80,69 +83,54 @@ public class EnemyController : MonoBehaviour
         ////Player detection
         distanceEP = Vector2.Distance(transform.position, Target.position - transform.position);
 
-        //Movimiento
-
-        if (distanceEP > customdistanceEP)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
-        }
-
-        //Disparo
-        if (distanceEP <= customdistanceEP)
-        {
-            if (crono != cronoL)
-            {
-                if (crono >= cronoL)
-                {
-
-                    FiredBullet(Bullet);
-                    crono = 0;
-
-                }
-                crono += 1 * Time.deltaTime;
-            }
-        }
+        //Walled
+        walled = Physics.CheckSphere(transform.position, wallDistance, wallMask);
 
         //Raycast
         RaycastHit enemyhit;
+        rayVector = new Vector3((Target.position.x - transform.position.x), (Target.position.y - transform.position.y));
+        Physics.Raycast(transform.position, rayVector, out enemyhit);
 
-        if (changedone == false)
+        if(enemyhit.transform.tag == "Player" && !walled)
         {
-            transform.position += new Vector3(0, 0, 10);
-            changedone = true;
+            //Movimiento
+            if (distanceEP > customdistanceEP)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
+            }
+
+            //Disparo
+            if (distanceEP <= customdistanceEP)
+            {
+                if (crono != cronoL)
+                {
+                    if (crono >= cronoL)
+                    {
+
+                        FiredBullet(Bullet);
+                        crono = 0;
+
+                    }
+                    crono += 1 * Time.deltaTime;
+                }
+            }
         }
-
-        Physics.Raycast(transform.position, transform.forward, out enemyhit);
-
-        //if (enemyhit.collider.gameObject.CompareTag("Player"))
-        //{
-        //    disparo = Color.black;
-        //}
-        //else
-        //{
-        //    disparo = Color.cyan;
-        //}
-        //Debug.DrawRay(transform.position, -Vector2.MoveTowards(transform.position, Target.position, 1 * Time.deltaTime));
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D col)
     {
+        if(col.gameObject.tag != "Wall")
         {
             healthE--;
         }
     }
-
-    //void FindVisibleTargets()
-    //{
-    //    Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-    //    for (int i = 0; i < targetsInViewRadius.Length; i++)
-    //    {
-    //        Transform target = targetsInViewRadius [i].transform;
-    //    }
-    //}
     void FiredBullet(GameObject bullet)
     {
-        GameObject firedbullet =Instantiate(bullet, Barrel.position, transform.rotation);
+        GameObject firedbullet = Instantiate(bullet, Barrel.position, transform.rotation);
         firedbullet.GetComponent<Rigidbody2D>().velocity = transform.up * 20f;
 
     }

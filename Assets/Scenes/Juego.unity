@@ -170,17 +170,17 @@ PrefabInstance:
     - target: {fileID: 4847643537598916047, guid: 97ca9d1a82e6c154081ec8b8841f121c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45
+      value: 30.2
       objectReference: {fileID: 0}
     - target: {fileID: 4847643537598916047, guid: 97ca9d1a82e6c154081ec8b8841f121c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.7
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 4847643537598916047, guid: 97ca9d1a82e6c154081ec8b8841f121c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4847643537598916047, guid: 97ca9d1a82e6c154081ec8b8841f121c,
         type: 3}
@@ -228,6 +228,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1551608104427375577, guid: 0b699084df4db8b4b8a5e8e3041b8929,
         type: 3}
+    - target: {fileID: 4847643537598916045, guid: 97ca9d1a82e6c154081ec8b8841f121c,
+        type: 3}
+      propertyPath: wallMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97ca9d1a82e6c154081ec8b8841f121c, type: 3}
 --- !u!4 &1235411320 stripped
@@ -486,6 +491,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 880fffdbe335c2347bb8682f587bab91, type: 2}
+    - target: {fileID: 3654467531561771562, guid: 7f467f8eac4aabc4ca9730c1370ba782,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654467531561771562, guid: 7f467f8eac4aabc4ca9730c1370ba782,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f467f8eac4aabc4ca9730c1370ba782, type: 3}
 --- !u!224 &2052738188 stripped
