@@ -10,11 +10,9 @@ public class EditorScript : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     void Update()
     {
-        Physics2D.IgnoreCollision(enemys.GetComponent<BoxCollider2D>(), wall.GetComponent<BoxCollider2D>());
     }
 }

@@ -99,4 +99,8 @@ public class LimitOfWall : MonoBehaviour
         }
         return acolor;
     }
+    public void EnemyIsHere()
+    {
+        
+    }
 }

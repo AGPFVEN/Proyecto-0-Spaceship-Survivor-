@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4847643537598916034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.08, z: 1}
   m_Children:
   - {fileID: 4656319763277791197}
@@ -142,20 +142,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e11a0e5872157409b040ab31457c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 149218283216431731, guid: ac4915d3371dcc74fab9197744785f53, type: 3}
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 512
+  wallDistance: 10
+  Bullet: {fileID: 1551608104427375577, guid: 0b699084df4db8b4b8a5e8e3041b8929, type: 3}
   Barrel: {fileID: 4656319763277791197}
   crono: 0
   cronoL: 2
+  healthE: 5
   viewRadius: 2
   viewAngle: 128
   distanceEP: 0
   customdistanceEP: 100
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &7666845876533042473
 GameObject:
   m_ObjectHideFlags: 0
