@@ -490,6 +490,16 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6550398449376448889, guid: 7f467f8eac4aabc4ca9730c1370ba782,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -229195123
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550398449376448889, guid: 7f467f8eac4aabc4ca9730c1370ba782,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f467f8eac4aabc4ca9730c1370ba782, type: 3}
 --- !u!224 &2052738188 stripped
@@ -914,5 +924,25 @@ PrefabInstance:
       propertyPath: spawnerUR
       value: 
       objectReference: {fileID: 160713461}
+    - target: {fileID: 8470319567097844292, guid: 4d215174c4a13f94b8ac19698a278f8a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.5873089
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470319567097844292, guid: 4d215174c4a13f94b8ac19698a278f8a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.7219868
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470319567097844292, guid: 4d215174c4a13f94b8ac19698a278f8a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.6692706
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470319567097844292, guid: 4d215174c4a13f94b8ac19698a278f8a,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.013385475
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d215174c4a13f94b8ac19698a278f8a, type: 3}

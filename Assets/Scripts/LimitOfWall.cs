@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LimitOfWall : MonoBehaviour
 {
+    //Danger Wall
+    public Sprite wallsprite;
+    public Sprite dangersprite;
+    SpriteRenderer wallrender;
+
     //Colores de los raycast
     Color chocaar;
     Color chocaab;
@@ -38,6 +43,9 @@ public class LimitOfWall : MonoBehaviour
         //Vectores Useful
         ab = transform.up * transform.localScale.y * 5.4f;
         di = transform.right * transform.localScale.x * 9.6f;
+
+        //Danger Wall
+        wallrender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

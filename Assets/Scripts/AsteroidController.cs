@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class AsteroidController : MonoBehaviour
 {
-    public float healthA;
+    float healthA;
+    public Sprite wallsprite;
+    public Sprite dangersprite;
+    SpriteRenderer wallrender;
 
     void Start()
     {
@@ -19,7 +22,6 @@ public class AsteroidController : MonoBehaviour
             Destruction();
         }
     }
-
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Bullet")
@@ -27,9 +29,12 @@ public class AsteroidController : MonoBehaviour
             healthA--;
         }
     }
-
     void Destruction()
     {
         Destroy(gameObject);
+    }
+    void DangerWall(bool dangerbool)
+    {
+        
     }
 }

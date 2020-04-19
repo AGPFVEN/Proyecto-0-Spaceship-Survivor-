@@ -8,8 +8,9 @@ public class EnemyController : MonoBehaviour
     //wall walking
     public LayerMask wallMask;
     bool walled;
-    public float wallDistance = 10f;
+    float wallDistance = 10f;
     Color disparo;
+    RaycastHit enemyhit;
 
     //bool colActivated;
     bool changedone;
@@ -17,11 +18,11 @@ public class EnemyController : MonoBehaviour
     //fire
     public GameObject Bullet;
     public Transform Barrel;
-    public float crono;
-    public float cronoL;
+    float crono;
+    float cronoL;
 
     //Destroyable
-    public int healthE;
+    int healthE;
 
     //Rigidbody2D rigidbody;
     Camera viewcamera;
@@ -35,12 +36,12 @@ public class EnemyController : MonoBehaviour
 
     //Player detection
     Transform Target;
-    public float viewRadius;
-    public float viewAngle;
-    public float distanceEP;
-    public float customdistanceEP;
+    float viewRadius;
+    float viewAngle;
+    float distanceEP;
+    float customdistanceEP;
     Vector3 rayVector;
-    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
         if (!angleIsGlobal)
         {
@@ -87,46 +88,37 @@ public class EnemyController : MonoBehaviour
         walled = Physics.CheckSphere(transform.position, wallDistance, wallMask);
 
         //Raycast
-        RaycastHit enemyhit;
         rayVector = new Vector3((Target.position.x - transform.position.x), (Target.position.y - transform.position.y));
         Physics.Raycast(transform.position, rayVector, out enemyhit);
+        Debug.DrawRay(transform.position, rayVector, Color.green);
 
-        Debug.Log(healthE);
-
-        try
+        if (enemyhit.transform.tag == "Player" && !walled)
         {
-            if (enemyhit.transform.tag == "Player" && !walled)
-            {
-                //Movimiento
-                if (distanceEP > customdistanceEP)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
-                }
-
-                //Disparo
-                if (distanceEP <= customdistanceEP)
-                {
-                    if (crono != cronoL)
-                    {
-                        if (crono >= cronoL)
-                        {
-
-                            FiredBullet(Bullet);
-                            crono = 0;
-
-                        }
-                        crono += 1 * Time.deltaTime;
-                    }
-                }
-            }
-            else
+            //Movimiento
+            if (distanceEP > customdistanceEP)
             {
                 transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
             }
+
+            //Disparo
+            if (distanceEP <= customdistanceEP)
+            {
+                if (crono != cronoL)
+                {
+                    if (crono >= cronoL)
+                    {
+
+                        FiredBullet(Bullet);
+                        crono = 0;
+
+                    }
+                    crono += 1 * Time.deltaTime;
+                }
+            }
         }
-        catch (NullReferenceException ex)
+        else
         {
-            Debug.Log("No pasa nada");
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, 1.5f * Time.deltaTime);
         }
     }
 
