@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
@@ -10,12 +11,13 @@ public class HealthBar : MonoBehaviour
     private float health;
     public Image hpImage;
     public Text hpText;
-    public GameObject player;
+    GameObject player;
 
     private void Awake ()
     {
         hpImage.fillAmount = 1;
         currentHealth = maxHealth;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void Damage(float damageAmount)
@@ -27,7 +29,7 @@ public class HealthBar : MonoBehaviour
         hpText.GetComponent<Text>().text = currentHealth.ToString() + "%";
         if (health <= 0)
         {
-            Destroy(player);
+            SceneManager.LoadScene("Portada");
         }
     }
 }

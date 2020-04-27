@@ -18,7 +18,7 @@ public class StarshipController : MonoBehaviour
 
     //HealthBar
     public Transform SpaceShip;
-    public Transform healthBar;
+    Transform healthBar;
 
     //Rotation
     Camera viewCamera;
@@ -26,15 +26,36 @@ public class StarshipController : MonoBehaviour
     public Rigidbody2D rb;
     private float lookAngle;
 
-    void start()
+    //Score
+    public int score_Starship;
+    float tocero_score;
+
+    void Start()
     {
         viewCamera = Camera.main;
         tocero = 0;
         rb = GetComponent<Rigidbody2D>();
+        healthBar = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).transform;
+
+        //Score
+        score_Starship = 0;
+        tocero_score = 0;
     }
 
     void FixedUpdate()
     {
+        //Score
+        if(tocero_score <= 0)
+        {
+            score_Starship += 1;
+            tocero_score = 1;
+        }
+        else
+        {
+            tocero_score -= 1 * Time.deltaTime;
+        }
+        
+
         ////Movimiento 
         float vInput = Input.GetAxis("Vertical");
         transform.position += new Vector3(0, vInput * speed * Time.deltaTime * Time.deltaTime, 0);
@@ -68,8 +89,6 @@ public class StarshipController : MonoBehaviour
         {
             tocero -= 1 * Time.deltaTime;
         }
-
-        //Ability
         
     }
 
@@ -83,8 +102,8 @@ public class StarshipController : MonoBehaviour
     //Ability (como lo hago sigo sin saber)
 
     //Barra de Vida desactivada
-    //void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    healthBar.GetComponent<HealthBar>().Damage(15f);
-    //}
+    void OnCollisionEnter2D(Collision2D col)
+    {
+       healthBar.GetComponent<HealthBar>().Damage(15f);
+    }
 }

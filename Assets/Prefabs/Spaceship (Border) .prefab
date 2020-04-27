@@ -440,10 +440,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6773535124874591994}
-  - component: {fileID: 8470319567097844292}
   m_Layer: 0
   m_Name: Cannon
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,19 +461,6 @@ Transform:
   m_Father: {fileID: 6773535125038052163}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8470319567097844292
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773535124874591995}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6773535125038052174
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,8 +635,8 @@ MonoBehaviour:
   tLimit: 60
   Bullet: {fileID: 1551608104427375577, guid: 0b699084df4db8b4b8a5e8e3041b8929, type: 3}
   SpaceShip: {fileID: 6773535124874591994}
-  healthBar: {fileID: 0}
   rb: {fileID: 6773535125038052162}
+  score_Starship: 0
 --- !u!1 &8050698353763522578
 GameObject:
   m_ObjectHideFlags: 0
